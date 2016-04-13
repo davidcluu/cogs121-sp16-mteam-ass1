@@ -5,6 +5,7 @@ exports.view = function(req, res) {
     .find()
     .exec(function(err, comments) {
       console.log(comments);
-      res.render("index");
+      var commentFeed = {commentFeed : comments};
+      res.render("index", commentFeed);
     });
 };

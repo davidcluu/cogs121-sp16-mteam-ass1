@@ -9,6 +9,7 @@
     var $video_input = $('#video_input')
     socket.emit('newsfeed', { caption: $user_input.val(), video: $video_input.val()});
     $user_input.val('');
+    $video_input.val('');
   })
 
   socket.on('newsfeed', function(data) {
@@ -18,8 +19,7 @@
     $('#messages').prepend($('<li>').html(messageTemplate(parsedData)));
 
     function messageTemplate(template) {
-      var url = template.videoUrl;
-      var vidUrl = url.replace("watch?v=", "v/");
+
       var result = '<div class="user">' +
         '<div class="user-info">' +
         '<span class="username">' + template.user + '</span><br/>' +
@@ -27,7 +27,7 @@
         '</div>' +
         '</div>' +
         '<div class="message-content">' +
-        '<iframe width="420" height="315" src=' + vidUrl + '></iframe>' +
+        '<iframe width="420" height="315" src=' + template.videoUrl + '></iframe>' +
         '<p>' + template.videoCaption + '</p>'
         '</div>';
       return result;

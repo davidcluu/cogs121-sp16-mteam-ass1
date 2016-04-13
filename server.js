@@ -147,9 +147,11 @@ io.on('connection', function(socket){
 
   var user = socket.request.session.passport.user;
   socket.on("newsfeed", function(input) {
+    var vidLink = input.video;
+    var videoLinkMod = vidLink.replace("watch?v=", "v/");
     var newCommentFeed = new models.Comment ({
       'user' : user.username,
-      'videoUrl': input.video,
+      'videoUrl': videoLinkMod,
       'videoCaption': input.caption
     })
 
