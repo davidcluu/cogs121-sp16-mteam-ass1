@@ -51,38 +51,42 @@
 
       <div class="col-md-5">
          <!--comment box-->
-		<!-- <section> -->
+		<!-- ###### COMMENT THIS OUT IF CAN'T FIX COMMENT BUTTON BUG ###### -->
 		     <div id="inner">
-		       <!-- <form id="send_message" action="">
-		        	<input type="text" id="video_input" placeholder="Paste your video URL here!" autocomplete="off" /><br>
-		        	<hr>
-		            <input type="text" id="user_input" placeholder="What's this video about?" autocomplete="off" />
-		            <hr>
-		            <input type="submit" value="Submit">
-		        </form> -->
-		        <ul id="messages">
-                 <!-- <div class="col-md-8 col-md-push-4"> -->
-                 <div class="row">
-                   <div class="col-md-12">
-                      <div class="panel panel-primary">
-                        <div class="panel-heading">
-                          <h3 class="panel-title">Make a Headline</h3>
-                        </div>
-                        <div class="panel-body">
-                           <form id="send_message" action="">
-                            <input type="text" id="video_input" placeholder="Paste your video URL here!" autocomplete="off" /><br/>
-                            <input type="text" id="user_input" placeholder="What's this video about?" autocomplete="off" />
-                            <input class="btn btn-success" type="submit" role="button" value="Submit">
-                          </form>
-                        </div>
-                      </div>
+              <div class="row">
+                <div class="col-md-12">
+                   <div class="panel panel-primary">
+                     <div class="panel-heading">
+                       <h3 class="panel-title">Make a Headline</h3>
+                     </div>
+                     <div class="panel-body">
+                        <form id="send_message" action="">
+                         <input type="text" id="video_input" placeholder="Paste your video URL here!" autocomplete="off" /><br/>
+                         <input type="text" id="user_input" placeholder="What's this video about?" autocomplete="off" />
+                         <input class="btn btn-success" type="submit" role="button" value="Submit">
+                       </form>
+                     </div>
                    </div>
-                 </div>
+                </div>
+              </div>
+      <!-- ###### COMMENT THIS OUT IF CAN'T FIX COMMENT BUTTON BUG ###### -->
+
+		        <!-- <ul id="messages"> -->
                           <div class="panel panel-primary">
                             <div class="panel-heading">
                               <h3 class="panel-title">Incoming News</h3>
                             </div>
+                            <ul id="messages">
                             <div class="panel-body">
+                               <!--###### Uncomment and use this version if can't fix comment button bug ##### -->
+
+                               <!-- <form id="send_message" action="">
+                                <input type="text" id="video_input" placeholder="Paste your video URL here!" autocomplete="off" /><br/>
+                                <input type="text" id="user_input" placeholder="What's this video about?" autocomplete="off" />
+                                <input class="btn btn-success" type="submit" role="button" value="Submit">
+                              </form> -->
+                              
+                              <!--###### Uncomment and use this version if can't fix comment button bug ##### -->
                                {{#each commentFeed}}
                               <hr>
                               <li>

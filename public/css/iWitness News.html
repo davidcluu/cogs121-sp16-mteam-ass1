@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>iWitness News</title>
+        <link href='https://fonts.googleapis.com/css?family=Didact+Gothic' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" type="text/css" href="./css/style.css">
+        <link rel="stylesheet" type="text/css" href="./css/style.min.css">
+        <!-- Bootstrap -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="css/css/bootstrap.css">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  
+<body>
+      <body>
+     <div id="container">
+     <!-- nav bar -->
+     <nav class="navbar bar-color navbar-static-top">
+       <div class="container-fluid">
+         <!-- Brand and toggle get grouped for better mobile display -->
+         <div class="navbar-header">
+           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+             <span class="sr-only">Toggle navigation</span>
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+           </button>
+           <a class="navbar-brand" href="/">iWitness News</a>
+              <a href="/auth/twitter"><button type="button" class="btn btn-info navbar-btn">Login with Twitter</button></a>
+           </div>
+        </div>
+   </nav>
+   <!-- end nav bar -->
+   <div class="container-fluid">
+    <div class="row">
+
+      <div class="col-md-3">
+         <div class="panel panel-primary">
+           <div class="panel-heading">
+             <h3 class="panel-title">Trending News</h3>
+           </div>
+           <div class="panel-body">
+             <hr>
+             <div class="user">
+                <!-- <div class="user-image">
+                   <img src="" alt="">
+                </div> -->
+                 <div class="user-info">
+                     <span class="username">username</span>&nbsp;
+                     <span class="posted">posted</span>
+                 </div>
+             </div>
+             <div class="embed-responsive embed-responsive-4by3">
+                <iframe class="embed-responsive-item video" src="https://www.youtube.com/embed/e-ORhEE9VVg"></iframe>
+             </div>
+             <caption>Video Caption</caption>
+             <p><a href="#" class="btn btn-info pull-right" role="button">Comment</a></p>
+           </div>
+         </div>
+      </div>
+
+      <div class="col-md-5">
+         <!--comment box-->
+		<!-- <section> -->
+		     <div id="inner">
+              <div class="row">
+                <div class="col-md-12">
+                   <div class="panel panel-primary">
+                     <div class="panel-heading">
+                       <h3 class="panel-title">Make a Headline</h3>
+                     </div>
+                     <div class="panel-body">
+                        <form id="send_message" action="">
+                         <input type="text" id="video_input" placeholder="Paste your video URL here!" autocomplete="off" /><br/>
+                         <input type="text" id="user_input" placeholder="What's this video about?" autocomplete="off" />
+                         <input class="btn btn-success" type="submit" role="button" value="Submit">
+                       </form>
+                     </div>
+                   </div>
+                </div>
+              </div>
+		        <!-- <ul id="messages"> -->
+                          <div class="panel panel-primary">
+                            <div class="panel-heading">
+                              <h3 class="panel-title">Incoming News</h3>
+                            </div>
+                            <ul id="messages">
+                            <div class="panel-body">
+                               <!-- <form id="send_message" action="">
+                                <input type="text" id="video_input" placeholder="Paste your video URL here!" autocomplete="off" /><br/>
+                                <input type="text" id="user_input" placeholder="What's this video about?" autocomplete="off" />
+                                <input class="btn btn-success" type="submit" role="button" value="Submit">
+                              </form> -->
+
+                              <hr>
+                              <li>
+                              <div class="user">
+                                 <!-- <div class="user-image">
+                                    <img src="" alt="">
+                                 </div> -->
+                                  <div class="user-info">
+                                      <span class="username">christinevdo</span>
+                                      <br/>
+                                      <span class="posted">Wed Apr 13 2016 16:13:18 GMT-0700 (PDT)</span>
+                                  </div>
+                              </div>
+                              <div class="embed-responsive embed-responsive-4by3 message-content">
+                                 <iframe class="embed-responsive-item video" src="https://www.youtube.com/v/e-ORhEE9VVg"></iframe>
+                              </div>
+                           </li>
+                           <p>taytay</p>
+                           <p><a href="#" class="btn btn-info pull-right" role="button">Comment</a></p>
+                              <hr>
+                              <li>
+                              <div class="user">
+                                 <!-- <div class="user-image">
+                                    <img src="" alt="">
+                                 </div> -->
+                                  <div class="user-info">
+                                      <span class="username">christinevdo</span>
+                                      <br/>
+                                      <span class="posted">Wed Apr 13 2016 16:13:18 GMT-0700 (PDT)</span>
+                                  </div>
+                              </div>
+                              <div class="embed-responsive embed-responsive-4by3 message-content">
+                                 <iframe class="embed-responsive-item video" src="https://www.youtube.com/v/e-ORhEE9VVg"></iframe>
+                              </div>
+                           </li>
+                           <p>taylor swift</p>
+                           <p><a href="#" class="btn btn-info pull-right" role="button">Comment</a></p>
+                              <hr>
+                              <li>
+                              <div class="user">
+                                 <!-- <div class="user-image">
+                                    <img src="" alt="">
+                                 </div> -->
+                                  <div class="user-info">
+                                      <span class="username">christinevdo</span>
+                                      <br/>
+                                      <span class="posted">Wed Apr 13 2016 16:11:32 GMT-0700 (PDT)</span>
+                                  </div>
+                              </div>
+                              <div class="embed-responsive embed-responsive-4by3 message-content">
+                                 <iframe class="embed-responsive-item video" src="https://www.youtube.com/v/e-ORhEE9VVg"></iframe>
+                              </div>
+                           </li>
+                           <p>tswizzle</p>
+                           <p><a href="#" class="btn btn-info pull-right" role="button">Comment</a></p>
+                              <hr>
+                              <li>
+                              <div class="user">
+                                 <!-- <div class="user-image">
+                                    <img src="" alt="">
+                                 </div> -->
+                                  <div class="user-info">
+                                      <span class="username">christinevdo</span>
+                                      <br/>
+                                      <span class="posted">Wed Apr 13 2016 16:10:00 GMT-0700 (PDT)</span>
+                                  </div>
+                              </div>
+                              <div class="embed-responsive embed-responsive-4by3 message-content">
+                                 <iframe class="embed-responsive-item video" src="https://www.youtube.com/v/e-ORhEE9VVg"></iframe>
+                              </div>
+                           </li>
+                           <p>taylor swift</p>
+                           <p><a href="#" class="btn btn-info pull-right" role="button">Comment</a></p>
+                              <hr>
+                              <li>
+                              <div class="user">
+                                 <!-- <div class="user-image">
+                                    <img src="" alt="">
+                                 </div> -->
+                                  <div class="user-info">
+                                      <span class="username">christinevdo</span>
+                                      <br/>
+                                      <span class="posted">Wed Apr 13 2016 16:09:02 GMT-0700 (PDT)</span>
+                                  </div>
+                              </div>
+                              <div class="embed-responsive embed-responsive-4by3 message-content">
+                                 <iframe class="embed-responsive-item video" src="https://www.youtube.com/v/e-ORhEE9VVg"></iframe>
+                              </div>
+                           </li>
+                           <p>TS</p>
+                           <p><a href="#" class="btn btn-info pull-right" role="button">Comment</a></p>
+                              <hr>
+                              <li>
+                              <div class="user">
+                                 <!-- <div class="user-image">
+                                    <img src="" alt="">
+                                 </div> -->
+                                  <div class="user-info">
+                                      <span class="username">christinevdo</span>
+                                      <br/>
+                                      <span class="posted">Wed Apr 13 2016 16:07:29 GMT-0700 (PDT)</span>
+                                  </div>
+                              </div>
+                              <div class="embed-responsive embed-responsive-4by3 message-content">
+                                 <iframe class="embed-responsive-item video" src="https://www.youtube.com/v/e-ORhEE9VVg"></iframe>
+                              </div>
+                           </li>
+                           <p>Taylor Swift - Blank Space</p>
+                           <p><a href="#" class="btn btn-info pull-right" role="button">Comment</a></p>
+                              <hr>
+                              <li>
+                              <div class="user">
+                                 <!-- <div class="user-image">
+                                    <img src="" alt="">
+                                 </div> -->
+                                  <div class="user-info">
+                                      <span class="username">christinevdo</span>
+                                      <br/>
+                                      <span class="posted">Wed Apr 13 2016 16:04:16 GMT-0700 (PDT)</span>
+                                  </div>
+                              </div>
+                              <div class="embed-responsive embed-responsive-4by3 message-content">
+                                 <iframe class="embed-responsive-item video" src="https://www.youtube.com/v/-CmadmM5cOk"></iframe>
+                              </div>
+                           </li>
+                           <p>Taylor Swift Releases Style Music Video</p>
+                           <p><a href="#" class="btn btn-info pull-right" role="button">Comment</a></p>
+                              <hr>
+                              <li>
+                              <div class="user">
+                                 <!-- <div class="user-image">
+                                    <img src="" alt="">
+                                 </div> -->
+                                  <div class="user-info">
+                                      <span class="username">christinevdo</span>
+                                      <br/>
+                                      <span class="posted">Wed Apr 13 2016 15:54:50 GMT-0700 (PDT)</span>
+                                  </div>
+                              </div>
+                              <div class="embed-responsive embed-responsive-4by3 message-content">
+                                 <iframe class="embed-responsive-item video" src="https://www.youtube.com/v/tsTZ2iFRSmw&amp;nohtml5&#x3D;False"></iframe>
+                              </div>
+                           </li>
+                           <p>Conan &amp; Steven Yeun Enjoy A Traditional Korean Mea</p>
+                           <p><a href="#" class="btn btn-info pull-right" role="button">Comment</a></p>
+                              <hr>
+                              <li>
+                              <div class="user">
+                                 <!-- <div class="user-image">
+                                    <img src="" alt="">
+                                 </div> -->
+                                  <div class="user-info">
+                                      <span class="username">christinevdo</span>
+                                      <br/>
+                                      <span class="posted">Wed Apr 13 2016 15:54:50 GMT-0700 (PDT)</span>
+                                  </div>
+                              </div>
+                              <div class="embed-responsive embed-responsive-4by3 message-content">
+                                 <iframe class="embed-responsive-item video" src=""></iframe>
+                              </div>
+                           </li>
+                           <p></p>
+                           <p><a href="#" class="btn btn-info pull-right" role="button">Comment</a></p>
+                              <hr>
+                              <li>
+                              <div class="user">
+                                 <!-- <div class="user-image">
+                                    <img src="" alt="">
+                                 </div> -->
+                                  <div class="user-info">
+                                      <span class="username">christinevdo</span>
+                                      <br/>
+                                      <span class="posted">Wed Apr 13 2016 15:54:50 GMT-0700 (PDT)</span>
+                                  </div>
+                              </div>
+                              <div class="embed-responsive embed-responsive-4by3 message-content">
+                                 <iframe class="embed-responsive-item video" src="https://www.youtube.com/v/jp2ggZ7s4OI&amp;nohtml5&#x3D;False"></iframe>
+                              </div>
+                           </li>
+                           <p>Trump Only Knows What&#x27;s On The Internet</p>
+                           <p><a href="#" class="btn btn-info pull-right" role="button">Comment</a></p>
+                              <hr>
+                              <li>
+                              <div class="user">
+                                 <!-- <div class="user-image">
+                                    <img src="" alt="">
+                                 </div> -->
+                                  <div class="user-info">
+                                      <span class="username">christinevdo</span>
+                                      <br/>
+                                      <span class="posted">Wed Apr 13 2016 13:17:19 GMT-0700 (PDT)</span>
+                                  </div>
+                              </div>
+                              <div class="embed-responsive embed-responsive-4by3 message-content">
+                                 <iframe class="embed-responsive-item video" src="https://www.youtube.com/v/K46Ez-Igc9E"></iframe>
+                              </div>
+                           </li>
+                           <p>Conan Stars In North Korea’s First Late Night Talk Show</p>
+                           <p><a href="#" class="btn btn-info pull-right" role="button">Comment</a></p>
+                              <hr>
+                              <li>
+                              <div class="user">
+                                 <!-- <div class="user-image">
+                                    <img src="" alt="">
+                                 </div> -->
+                                  <div class="user-info">
+                                      <span class="username">christinevdo</span>
+                                      <br/>
+                                      <span class="posted">Wed Apr 13 2016 12:10:45 GMT-0700 (PDT)</span>
+                                  </div>
+                              </div>
+                              <div class="embed-responsive embed-responsive-4by3 message-content">
+                                 <iframe class="embed-responsive-item video" src="https://www.youtube.com/v/X2mqrzKHb3w"></iframe>
+                              </div>
+                           </li>
+                           <p>J.Y. Park &quot;Fire&quot; feat. Conan O&#x27;Brien &amp; Steven Yeun &amp; Jimin Park Official M/V</p>
+                           <p><a href="#" class="btn btn-info pull-right" role="button">Comment</a></p>
+                              <hr>
+                              <li>
+                              <div class="user">
+                                 <!-- <div class="user-image">
+                                    <img src="" alt="">
+                                 </div> -->
+                                  <div class="user-info">
+                                      <span class="username">christinevdo</span>
+                                      <br/>
+                                      <span class="posted">Wed Apr 13 2016 12:07:36 GMT-0700 (PDT)</span>
+                                  </div>
+                              </div>
+                              <div class="embed-responsive embed-responsive-4by3 message-content">
+                                 <iframe class="embed-responsive-item video" src="https://www.youtube.com/v/bt90VCye6Vk"></iframe>
+                              </div>
+                           </li>
+                           <p>Conan Learns Korean and Makes It Weird</p>
+                           <p><a href="#" class="btn btn-info pull-right" role="button">Comment</a></p>
+                            </div>
+                          </div>
+                       <!-- </div> -->
+
+		        </ul>
+		    </div>
+		<!-- </section> -->
+      </div>
+
+      <div class="col-md-4">
+         <div class="panel panel-primary">
+           <div class="panel-heading">
+             <h3 class="panel-title">Message Threads</h3>
+           </div>
+           <div class="panel-body">
+             <hr>
+             <div class="user">
+                <!-- <div class="user-image">
+                   <img src="" alt="">
+                </div> -->
+                 <div class="user-info">
+                     <span class="username">username</span>&nbsp;
+                     <span class="posted">posted</span>
+                 </div>
+             </div>
+             <div class="embed-responsive embed-responsive-4by3">
+                <iframe class="embed-responsive-item video" src="https://www.youtube.com/embed/e-ORhEE9VVg"></iframe>
+             </div>
+             <caption>Video Caption</caption>
+             <p><a href="#" class="btn btn-info pull-right" role="button">Comment</a></p>
+           </div>
+         </div>
+        <!--comment box-->
+
+     </div>
+
+   </div>
+   </div>
+   <div class="bar-color" id="footer">
+      <div class="container">
+         <p>&copy; COGS 121 Team M, 2016.</p>
+      </div>
+   </div>
+
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="css/js/bootstrap.min.js"></script>
+    <script src="./js/jquery.min.js"></script>
+	<script src="./js/socket.io.min.js"></script>
+	<script src="./js/chatbox.js"></script>
+	<script src="./js/search.js"></script>
+</div>
+  </body>
+  </html>
+
+</body>
+
+</html>
