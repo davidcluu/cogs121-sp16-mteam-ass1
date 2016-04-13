@@ -32,11 +32,12 @@ body {
 }
 
 .video {
-   padding-bottom: 10px;
+   padding-bottom: 5px;
 }
 
 hr {
 	margin: 0;
+   clear: both;
 }
 form {
 	height: auto;

@@ -24,7 +24,7 @@
    <div class="container-fluid">
     <div class="row">
 
-      <div class="col-md-4">
+      <div class="col-md-3">
          <div class="panel panel-primary">
            <div class="panel-heading">
              <h3 class="panel-title">Trending News</h3>
@@ -49,7 +49,7 @@
          </div>
       </div>
 
-      <div class="col-md-4">
+      <div class="col-md-5">
          <!--comment box-->
 		<!-- <section> -->
 		     <div id="inner">
@@ -82,19 +82,17 @@
                                     <img src="{{photo}}" alt="">
                                  </div> -->
                                   <div class="user-info">
-                                     <div class="user-info">
-                                         <span class="username">{{user}}</span>
-                                         <br/>
-                                         <span class="posted">{{posted}}</span>
-                                     </div>
+                                      <span class="username">{{user}}</span>
+                                      <br/>
+                                      <span class="posted">{{posted}}</span>
                                   </div>
                               </div>
                               <div class="embed-responsive embed-responsive-4by3 message-content">
                                  <iframe class="embed-responsive-item video" src="{{videoUrl}}"></iframe>
-                                 <caption>{{videoCaption}}</caption>
-                                 <p><a href="#" class="btn btn-info pull-right" role="button">Comment</a></p>
                               </div>
                            </li>
+                           <p>{{videoCaption}}</p>
+                           <p><a href="#" class="btn btn-info pull-right" role="button">Comment</a></p>
                            {{/each}}
                             </div>
                           </div>
@@ -131,14 +129,15 @@
         <!--comment box-->
 
      </div>
-     
+
+   </div>
    </div>
    <div class="bar-color" id="footer">
       <div class="container">
          <p>&copy; COGS 121 Team M, 2016.</p>
       </div>
    </div>
-</div>
+
 
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
