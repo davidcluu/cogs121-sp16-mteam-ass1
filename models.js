@@ -17,13 +17,13 @@ var UserSchema = new Schema({
 });
 
 var ThreadSchema = new Schema({
-  'user': [{ type: Schema.Types.ObjectId, ref: 'User' }],
+  'user': String,
   'topic': String,
   'posted': { type: Date, default: Date.now() }
 });
 
 var CommentSchema = new Schema({
-  'user': [{ type: Schema.Types.ObjectId, ref: 'User' }],
+  'user': String,
   'videoUrl': String,
   'videoCaption': String,
   'posted': { type: Date, default: Date.now() }

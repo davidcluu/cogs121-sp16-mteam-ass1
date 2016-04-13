@@ -147,14 +147,13 @@ io.on('connection', function(socket){
 
   var user = socket.request.session.passport.user;
   socket.on("newsfeed", function(input) {
-
     var newCommentFeed = new models.Comment ({
-      'user' : user.name, /* TODO: fix */
+      'user' : user.username,
       'videoUrl': input.video,
       'videoCaption': input.caption
     })
 
-    console.log(user);
+    console.log(newCommentFeed);
 
     newCommentFeed.save(function(err, news) {
       if (err) {

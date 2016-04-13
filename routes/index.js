@@ -1,8 +1,10 @@
-//var models = require("../models");
+var models = require("../models");
 
 exports.view = function(req, res) {
-
-	res.render("index");
-
-
+  models.Comment
+    .find()
+    .exec(function(err, comments) {
+      console.log(comments);
+      res.render("index");
+    });
 };
