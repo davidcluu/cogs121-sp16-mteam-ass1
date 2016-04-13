@@ -164,7 +164,7 @@ io.on('connection', function(socket){
 
       io.emit("newsfeed", JSON.stringify(news));
     });
-    
+
   });
 })
 

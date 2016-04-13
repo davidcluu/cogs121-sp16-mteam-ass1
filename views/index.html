@@ -1,26 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>News - Team M</title>
-    <!-- Bootstrap -->
-    <link href="css/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="css/css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="css/css/lauren.css">
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-  </head>
   <body>
+     <div id="container">
      <!-- nav bar -->
-     <nav class="navbar navbar-inverse navbar-static-top">
+     <nav class="navbar bar-color navbar-static-top">
        <div class="container-fluid">
          <!-- Brand and toggle get grouped for better mobile display -->
          <div class="navbar-header">
@@ -30,71 +11,135 @@
              <span class="icon-bar"></span>
              <span class="icon-bar"></span>
            </button>
-           <a class="navbar-brand" href="/">News App</a>
-              <a href="/auth/twitter"><button type="button" class="btn btn-info navbar-btn navbar-right">Login with Twitter</button></a>
+           <a class="navbar-brand" href="/">iWitness News</a>
+            {{#if user}}
+               <a href="/logout"><button type="button" class="btn btn-info navbar-btn">Logout</button></a>
+            {{else}}
+              <a href="/auth/twitter"><button type="button" class="btn btn-info navbar-btn">Login with Twitter</button></a>
+            {{/if}}
            </div>
         </div>
    </nav>
    <!-- end nav bar -->
-   <!-- <a href="/auth/twitter" class="btn btn-info" role="button">Login with Twitter</a> -->
+   <div class="container-fluid">
     <div class="row">
 
-      <div class="col-md-3">
-         <h2>Trending</h2>
+      <div class="col-md-4">
+         <div class="panel panel-primary">
+           <div class="panel-heading">
+             <h3 class="panel-title">Trending News</h3>
+           </div>
+           <div class="panel-body">
+             <hr>
+             <div class="user">
+                <!-- <div class="user-image">
+                   <img src="{{user.photo}}" alt="">
+                </div> -->
+                 <div class="user-info">
+                     <span class="username">username</span>&nbsp;
+                     <span class="posted">posted</span>
+                 </div>
+             </div>
+             <div class="embed-responsive embed-responsive-4by3">
+                <iframe class="embed-responsive-item video" src="https://www.youtube.com/embed/e-ORhEE9VVg"></iframe>
+             </div>
+             <caption>Video Caption</caption>
+             <p><a href="#" class="btn btn-info pull-right" role="button">Comment</a></p>
+           </div>
+         </div>
       </div>
 
-       <div class="col-md-3">
-        <h2>Threads</h2>
+      <div class="col-md-4">
          <!--comment box-->
-
-      </div>
-
-      <div class="col-md-6">
-         <h2>Main News Thread Here</h2>
-         {{#if user}}
-         	{{#each user}}
-         		<p>Hi {{displayName}}</p>
-         	{{/each}}
-         {{/if}}
-
-         <!--comment box-->
-		<section>
-		    <div id="inner">
-		        <form id="send_message" action="">
-		        	<input type="text" id="video_input" placeholder="put vid here" autocomplete="off" /><br>
+		<!-- <section> -->
+		     <div id="inner">
+		       <!-- <form id="send_message" action="">
+		        	<input type="text" id="video_input" placeholder="Paste your video URL here!" autocomplete="off" /><br>
 		        	<hr>
-		            <input type="text" id="user_input" placeholder="Type a new message and hit enter!" autocomplete="off" />
+		            <input type="text" id="user_input" placeholder="What's this video about?" autocomplete="off" />
 		            <hr>
 		            <input type="submit" value="Submit">
-		        </form>
+		        </form> -->
 		        <ul id="messages">
-		            {{#each commentFeed}}
-		            <hr>
-		            <li>
-		                <div class="user">
-		                    <div class="user-info">
-		                        <span class="username">{{user}}</span>
-		                        <br/>
-		                        <span class="posted">{{posted}}</span>
-		                    </div>
-		                </div>
-		                <div class="message-content">
-                        <iframe width="420" height="315" src="{{videoUrl}}"></iframe>
-                        <p>{{videoCaption}}</p>
-		                </div>
-		            </li>
-		            {{/each}}
+                 <!-- <div class="col-md-8 col-md-push-4"> -->
+                          <div class="panel panel-primary">
+                            <div class="panel-heading">
+                              <h3 class="panel-title">Incoming News</h3>
+                            </div>
+                            <div class="panel-body">
+                               <form id="send_message" action="">
+                                <input type="text" id="video_input" placeholder="Paste your video URL here!" autocomplete="off" /><br>
+                                <hr>
+                                   <input type="text" id="user_input" placeholder="What's this video about?" autocomplete="off" />
+                                   <hr>
+                                   <input class="btn btn-info" type="submit" role="button" value="Submit">
+                               </form>
+                               {{#each commentFeed}}
+                              <hr>
+                              <li>
+                              <div class="user">
+                                 <!-- <div class="user-image">
+                                    <img src="{{photo}}" alt="">
+                                 </div> -->
+                                  <div class="user-info">
+                                     <div class="user-info">
+                                         <span class="username">{{user}}</span>
+                                         <br/>
+                                         <span class="posted">{{posted}}</span>
+                                     </div>
+                                  </div>
+                              </div>
+                              <div class="embed-responsive embed-responsive-4by3 message-content">
+                                 <iframe class="embed-responsive-item video" src="{{videoUrl}}"></iframe>
+                                 <caption>{{videoCaption}}</caption>
+                                 <p><a href="#" class="btn btn-info pull-right" role="button">Comment</a></p>
+                              </div>
+                           </li>
+                           {{/each}}
+                            </div>
+                          </div>
+                       <!-- </div> -->
+
 		        </ul>
 		    </div>
-		</section>
+		<!-- </section> -->
+      </div>
+
+      <div class="col-md-4">
+         <div class="panel panel-primary">
+           <div class="panel-heading">
+             <h3 class="panel-title">Message Threads</h3>
+           </div>
+           <div class="panel-body">
+             <hr>
+             <div class="user">
+                <!-- <div class="user-image">
+                   <img src="{{user.photo}}" alt="">
+                </div> -->
+                 <div class="user-info">
+                     <span class="username">username</span>&nbsp;
+                     <span class="posted">posted</span>
+                 </div>
+             </div>
+             <div class="embed-responsive embed-responsive-4by3">
+                <iframe class="embed-responsive-item video" src="https://www.youtube.com/embed/e-ORhEE9VVg"></iframe>
+             </div>
+             <caption>Video Caption</caption>
+             <p><a href="#" class="btn btn-info pull-right" role="button">Comment</a></p>
+           </div>
+         </div>
+        <!--comment box-->
+
+     </div>
+     
+   </div>
+   <div class="bar-color" id="footer">
+      <div class="container">
+         <p>&copy; COGS 121 Team M, 2016.</p>
       </div>
    </div>
+</div>
 
-
-
-
-    <p>Buttons</p>
-    <p><a href="#" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span></a> <a href="#" class="btn btn-default" role="button"><span class="glyphicon glyphicon-lamp" aria-hidden="true"></span></a></p>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -104,6 +149,6 @@
 	<script src="./js/socket.io.min.js"></script>
 	<script src="./js/chatbox.js"></script>
 	<script src="./js/search.js"></script>
+</div>
   </body>
-  <footer>&copy; COGS 121 Team M, 2016.</footer>
-</html>
+  </html>
