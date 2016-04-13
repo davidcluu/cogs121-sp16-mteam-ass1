@@ -144,6 +144,27 @@ io.on('connection', function(socket){
   socket.on('disconnect', function(){
     console.log('user disconnected');
   });
+
+  var user = socket.request.session.passport.user;
+  socket.on("newsfeed", function(input) {
+
+    var newCommentFeed = new models.Comment ({
+      'user' : user.name, /* TODO: fix */
+      'videoUrl': input.video,
+      'videoCaption': input.caption
+    })
+
+    console.log(user);
+
+    newCommentFeed.save(function(err, news) {
+      if (err) {
+        return done(err);
+      }
+
+      io.emit("newsfeed", JSON.stringify(news));
+    });
+    
+  });
 })
 
 // Start Server

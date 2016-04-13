@@ -6,7 +6,8 @@
     e.preventDefault();
 
     var $user_input = $('#user_input')
-    socket.emit('newsfeed', $user_input.val());
+    var $video_input = $('#video_input')
+    socket.emit('newsfeed', { caption: $user_input.val(), video: $video_input.val()});
     $user_input.val('');
   })
 
@@ -17,17 +18,17 @@
     $('#messages').prepend($('<li>').html(messageTemplate(parsedData)));
 
     function messageTemplate(template) {
+      var url = template.videoUrl;
+      var vidUrl = url.replace("watch?v=", "v/");
       var result = '<div class="user">' +
-        '<div class="user-image">' +
-        '<img src="' + template.user.photo + '" alt="">' +
-        '</div>' +
         '<div class="user-info">' +
-        '<span class="username">' + template.user.username + '</span><br/>' +
+        '<span class="username">' + template.user + '</span><br/>' +
         '<span class="posted">' + template.posted + '</span>' +
         '</div>' +
         '</div>' +
         '<div class="message-content">' +
-        template.message +
+        '<iframe width="420" height="315" src=' + vidUrl + '></iframe>' +
+        '<p>' + template.videoCaption + '</p>'
         '</div>';
       return result;
     }

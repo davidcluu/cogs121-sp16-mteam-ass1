@@ -1,5 +1,8 @@
-// var models = require("../models");
+//var models = require("../models");
 
 exports.view = function(req, res) {
-  res.render("index");
+
+	res.render("index");
+
+
 };

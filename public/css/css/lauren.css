@@ -1,0 +1,10 @@
+hr {
+	margin: 0;
+}
+form {
+	height: auto;
+}
+
+form>input {
+	padding: 10px 20px;
+}

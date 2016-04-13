@@ -7,8 +7,9 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>News - Team M</title>
     <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/css/lauren.css">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -43,10 +44,47 @@
       <div class="col-xs-12 col-sm-6 col-md-8">
          <h2>Main News Thread Here</h2>
          {{#if user}}
-         <p>Hi {{username}}</p>
+         	{{#each user}}
+         		<p>Hi {{displayName}}</p>
+         	{{/each}}
          {{/if}}
+
+         <!--comment box-->
+		<section>
+		    <div id="inner">
+		        <form id="send_message" action="">
+		        	<input type="text" id="video_input" placeholder="put vid here" autocomplete="off" /><br>
+		        	<hr>
+		            <input type="text" id="user_input" placeholder="Type a new message and hit enter!" autocomplete="off" />
+		            <hr>
+		            <input type="submit" value="Submit">
+		        </form>
+		        <ul id="messages">
+		            {{#each newsfeed}}
+		            <hr>
+		            <li>
+		                <div class="user">
+		                    <div class="user-image">
+		                        <img src="{{user.photo}}" alt="">
+		                    </div>
+		                    <div class="user-info">
+		                        <span class="username">{{user.username}}</span>
+		                        <br/>
+		                        <span class="posted">{{posted}}</span>
+		                    </div>
+		                </div>
+		                <div class="message-content">
+		                    {{message}}
+		                </div>
+		            </li>
+		            {{/each}}
+		        </ul>
+		    </div>
+		</section>
       </div>
    </div>
+
+
 
     <p>Buttons</p>
     <p><a href="#" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span></a> <a href="#" class="btn btn-default" role="button"><span class="glyphicon glyphicon-lamp" aria-hidden="true"></span></a></p>
@@ -54,7 +92,11 @@
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="css/js/bootstrap.min.js"></script>
+    <script src="./js/jquery.min.js"></script>
+	<script src="./js/socket.io.min.js"></script>
+	<script src="./js/chatbox.js"></script>
+	<script src="./js/search.js"></script>
   </body>
   <footer>&copy; COGS 121 Team M, 2016.</footer>
 </html>

@@ -36,3 +36,4 @@ var CommentSchema = new Schema({
 exports.User = mongoose.model('User', UserSchema);
 exports.Thread = mongoose.model('Thread', ThreadSchema);
 exports.Comment = mongoose.model('Comment', CommentSchema);
+
