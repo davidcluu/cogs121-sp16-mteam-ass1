@@ -39,9 +39,9 @@ hr {
 	margin: 0;
    clear: both;
 }
-form {
-	height: auto;
-   margin-bottom: 150px;
+
+#user_input, #video_input {
+   margin-bottom: 15px;
 }
 
 form>input {

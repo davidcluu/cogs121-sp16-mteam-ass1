@@ -62,18 +62,27 @@
 		        </form> -->
 		        <ul id="messages">
                  <!-- <div class="col-md-8 col-md-push-4"> -->
+                 <div class="row">
+                   <div class="col-md-12">
+                      <div class="panel panel-primary">
+                        <div class="panel-heading">
+                          <h3 class="panel-title">Make a Headline</h3>
+                        </div>
+                        <div class="panel-body">
+                           <form id="send_message" action="">
+                            <input type="text" id="video_input" placeholder="Paste your video URL here!" autocomplete="off" /><br/>
+                            <input type="text" id="user_input" placeholder="What's this video about?" autocomplete="off" />
+                            <input class="btn btn-success" type="submit" role="button" value="Submit">
+                          </form>
+                        </div>
+                      </div>
+                   </div>
+                 </div>
                           <div class="panel panel-primary">
                             <div class="panel-heading">
                               <h3 class="panel-title">Incoming News</h3>
                             </div>
                             <div class="panel-body">
-                               <form id="send_message" action="">
-                                <input type="text" id="video_input" placeholder="Paste your video URL here!" autocomplete="off" /><br>
-                                <hr>
-                                   <input type="text" id="user_input" placeholder="What's this video about?" autocomplete="off" />
-                                   <hr>
-                                   <input class="btn btn-info" type="submit" role="button" value="Submit">
-                               </form>
                                {{#each commentFeed}}
                               <hr>
                               <li>
