@@ -28,7 +28,8 @@
         '</div>' +
         '<div class="message-content">' +
         '<iframe width="420" height="315" src=' + template.videoUrl + '></iframe>' +
-        '<p>' + template.videoCaption + '</p>'
+        '<p>' + template.videoCaption + '</p>' +
+        '<p><a href="#" class="btn btn-info pull-right" role="button">Comment</a></p>' +
         '</div>';
       return result;
     }

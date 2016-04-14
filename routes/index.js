@@ -6,7 +6,7 @@ exports.view = function(req, res) {
     .sort('-posted')
     .exec(function(err, comments) {
       console.log(comments);
-      var commentFeed = {commentFeed : comments};
-      res.render("index", commentFeed);
+      var feed = {topicFeed : topics, commentFeed : comments};
+      res.render("index", feed);
     });
 };
