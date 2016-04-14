@@ -145,26 +145,32 @@ io.on('connection', function(socket){
     console.log('user disconnected');
   });
 
-  var user = socket.request.session.passport.user;
   socket.on("newsfeed", function(input) {
-    var vidLink = input.video;
-    var videoLinkMod = vidLink.replace("watch?v=", "v/");
-    var newCommentFeed = new models.Comment ({
-      'user' : user.username,
-      'videoUrl': videoLinkMod,
-      'videoCaption': input.caption
-    })
+    var passport = socket.request.session.passport;
+    if (!passport.user) {
+      console.log("ERROR: Not logged in");
+    }
+    else {
+      var user = passport.user;
 
-    console.log(newCommentFeed);
+      var vidLink = input.video;
+      var videoLinkMod = vidLink.replace("watch?v=", "v/");
+      var newCommentFeed = new models.Comment ({
+        'user' : user.username,
+        'videoUrl': videoLinkMod,
+        'videoCaption': input.caption
+      })
 
-    newCommentFeed.save(function(err, news) {
-      if (err) {
-        return done(err);
-      }
+      console.log(newCommentFeed);
 
-      io.emit("newsfeed", JSON.stringify(news));
-    });
+      newCommentFeed.save(function(err, news) {
+        if (err) {
+          return done(err);
+        }
 
+        io.emit("newsfeed", JSON.stringify(news));
+      });
+    }
   });
 })
 
