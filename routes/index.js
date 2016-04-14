@@ -1,10 +1,10 @@
 var models = require("../models");
 
 exports.view = function(req, res) {
-  var user;
-  if (req.user) {
+  var user = req.user;
+  if (user) {
     user = {
-      username: req.user.username
+      username: user.username
     }
   }
 
