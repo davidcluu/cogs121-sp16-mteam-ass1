@@ -159,15 +159,12 @@ io.on('connection', function(socket){
         'user' : user.username,
         'videoUrl': videoLinkMod,
         'videoCaption': input.caption
-      })
-
-      console.log(newCommentFeed);
-
+      });
       newCommentFeed.save(function(err, news) {
         if (err) {
           return done(err);
         }
-
+        
         io.emit("newsfeed", JSON.stringify(news));
       });
     }

@@ -1,8 +1,7 @@
-(function($) {
-  "use strict";
-
+$(function (){
   var socket = io();
-  $('#send_message').submit(function(e){
+
+  $('#submit_video').submit(function(e){
     e.preventDefault();
 
     var $user_input = $('#user_input')
@@ -19,19 +18,23 @@
     $('#messages').prepend($('<li>').html(messageTemplate(parsedData)));
 
     function messageTemplate(template) {
-
-      var result = '<div class="user">' +
+      var result = '<hr>' + 
+        '<li>' + 
+        '<div class="user">' + 
         '<div class="user-info">' +
-        '<span class="username">' + template.user + '</span><br/>' +
+        '<span class="username">' + template.user + '</span>' +
+        '<br/>' +
         '<span class="posted">' + template.posted + '</span>' +
-        '</div>' +
-        '</div>' +
-        '<div class="message-content">' +
-        '<iframe width="420" height="315" src=' + template.videoUrl + '></iframe>' +
+        '</div>' + 
+        '</div>' + 
+        '<div class="embed-responsive embed-responsive-4by3 message-content">' +
+        '<iframe class="embed-responsive-item video" src="' + template.videoUrl + '"></iframe>' +
+        '</div>' + 
         '<p>' + template.videoCaption + '</p>' +
         '<p><a href="#" class="btn btn-info pull-right" role="button">Comment</a></p>' +
-        '</div>';
+        '</li>';
+
       return result;
     }
   });
-})($);
+});

@@ -54,8 +54,8 @@
         </div>
         <div class="panel-body">
           <!--headline form-->
-          <form id="send_message" action="">
-            <input type="text" id="user_input" placeholder="Create a Headline!" autocomplete="off" />
+          <form id="send_message" action="/get">
+            <input type="text" id="tmp" placeholder="Create a Headline!" autocomplete="off">
             <!--
               <input type="text" id="video_input" placeholder="Paste your video URL here!" autocomplete="off" /><br/>
                 -->
@@ -84,10 +84,11 @@
           <h3 class="panel-title">Write a Comment!</h3>
         </div>
         <div class="panel-body">
-          <form id="send_message" action="">
-            <input type="text" id="video_input" placeholder="Paste your video URL here!" autocomplete="off" /><br/>
+          <form id="submit_video" action="/get">
+            <input type="text" id="video_input" placeholder="Paste your video URL here!" autocomplete="off" />
+            <br/>
             <input type="text" id="user_input" placeholder="What's this video about?" autocomplete="off" />
-            <input class="btn btn-success" type="submit" role="button" value="Submit">
+            <input class="btn btn-success" type="submit" role="button" value="submit">
           </form>
         </div>
       </div>
@@ -97,13 +98,6 @@
           <h3 class="panel-title">Incoming News</h3>
         </div>
         <div class="panel-body">
-          <!--###### Uncomment and use this version if can't fix comment button bug ##### -->
-          <!-- <form id="send_message" action="">
-            <input type="text" id="video_input" placeholder="Paste your video URL here!" autocomplete="off" /><br/>
-            <input type="text" id="user_input" placeholder="What's this video about?" autocomplete="off" />
-            <input class="btn btn-success" type="submit" role="button" value="Submit">
-            </form> -->
-          <!--###### Uncomment and use this version if can't fix comment button bug ##### -->
           <ul id="messages">
             {{#each commentFeed}}
             <hr>
