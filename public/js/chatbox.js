@@ -1,8 +1,66 @@
 $(function (){
   var socket = io();
 
+  var $trending = $('#trending');
+  var $threads  = $('#threads');
+  var $comments = $('#comments');
+
+  $('#submit-thread').submit(function(e){
+    e.preventDefault();
+
+    var flag = false;
+
+    $trending
+      .velocity({
+        width : 100.0/(12.0/3) + '%'
+      },{
+        duration : 500,
+        complete : function() {
+          $trending.removeAttr('style', '');
+          showComments();
+        }
+      })
+      .removeClass('col-md-5')
+      .addClass('col-md-3');
+
+
+    $threads
+      .velocity({
+        width : 100.0/(12.0/4) + '%'
+      },{
+        duration : 500,
+        complete : function() {
+          $threads.removeAttr('style', '');
+          showComments();
+        }
+      })
+      .removeClass('col-md-7')
+      .addClass('col-md-4');
+
+    function showComments() {
+      if (!flag) {
+        flag = true;
+      }
+      else {
+        $comments
+          .css('opacity', '0')
+          .removeClass('hidden')
+          .velocity({
+            opacity : 1
+          },{
+            duration : 1000,
+            complete : function() {
+              $comments.removeAttr('style', '');
+            }
+          });
+
+        flag = false;
+      }
+    }
+  })
+
   //Threads
-  $('#submit_headline').submit(function(e){
+  $('#submit-headline').submit(function(e){
     e.preventDefault();
 
     var $headline = $('#headline')
@@ -11,7 +69,7 @@ $(function (){
   })
 
   //Comments
-  $('#submit_comment').submit(function(e){
+  $('#submit-comment').submit(function(e){
     e.preventDefault();
 
     var $user_input = $('#user_input')

@@ -22,7 +22,7 @@
 <!-- end nav bar -->
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-3">
+    <div id="trending" class="col-md-5">
       <div class="panel panel-primary">
         <div class="panel-heading">
           <h3 class="panel-title">Trending News</h3>
@@ -48,14 +48,14 @@
     </div>
 
     <!--Topic Threads-->
-    <div class="col-md-4">
+    <div id="threads" class="col-md-7">
       <div class="panel panel-primary">
         <div class="panel-heading">
           <h3 class="panel-title">Headlines</h3>
         </div>
         <div class="panel-body">
           <!--headline form-->
-          <form id="submit_headline" action="/get">
+          <form id="submit-thread" action="/get">
             <input type="text" id="headline" placeholder="Create a Headline!" autocomplete="off">
             <!--
               <input type="text" id="video_input" placeholder="Paste your video URL here!" autocomplete="off" /><br/>
@@ -86,13 +86,13 @@
       </div>
       <!-- </section> -->
     </div>
-    <div class="col-md-5">
+    <div id="comments" class="col-md-5 hidden">
       <div class="panel panel-primary">
         <div class="panel-heading">
           <h3 class="panel-title">Write a Comment!</h3>
         </div>
         <div class="panel-body">
-          <form id="submit_comment" action="/get">
+          <form id="submit-comment" action="/get">
             <input type="text" id="video_input" placeholder="Paste your video URL here!" autocomplete="off" />
             <br/>
             <input type="text" id="user_input" placeholder="What's this video about?" autocomplete="off" />
