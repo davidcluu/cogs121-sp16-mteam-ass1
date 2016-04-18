@@ -145,6 +145,30 @@ io.on('connection', function(socket){
     console.log('user disconnected');
   });
 
+  //Socket.on for threads
+  socket.on("topicfeed", function(input) {
+    var passport = socket.request.session.passport;
+    if (!passport.user) {
+      console.log("ERROR: Not logged in");
+    }
+    else {
+      var user = passport.user;
+      var newTopicFeed = new models.Thread ({
+        'user' : user.username,
+        'topic': input
+      });
+      console.log(newTopicFeed);
+      newTopicFeed.save(function(err, topic) {
+        if (err) {
+          return done(err);
+        }
+        
+        io.emit("topicfeed", JSON.stringify(topic));
+      });
+    }
+  });
+
+  //Socket.on for comments
   socket.on("newsfeed", function(input) {
     var passport = socket.request.session.passport;
     if (!passport.user) {
@@ -169,6 +193,9 @@ io.on('connection', function(socket){
       });
     }
   });
+
+
+
 })
 
 // Start Server

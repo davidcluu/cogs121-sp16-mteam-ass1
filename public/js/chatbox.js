@@ -1,7 +1,17 @@
 $(function (){
   var socket = io();
 
-  $('#submit_video').submit(function(e){
+  //Threads
+  $('#submit_headline').submit(function(e){
+    e.preventDefault();
+
+    var $headline = $('#headline')
+    socket.emit('topicfeed', $headline.val());
+    $headline.val('');;
+  })
+
+  //Comments
+  $('#submit_comment').submit(function(e){
     e.preventDefault();
 
     var $user_input = $('#user_input')
@@ -10,6 +20,30 @@ $(function (){
     $user_input.val('');
     $video_input.val('');
   })
+
+  socket.on('topicfeed', function(data) {
+    var parsedData = JSON.parse(data);
+    parsedData.posted = new Date(parsedData.posted);
+
+    $('#topics').prepend($('<li>').html(messageTemplate(parsedData)));
+
+    function messageTemplate(template) {
+      var result = '<hr>' + 
+        '<li>' + 
+        '<div class="user">' + 
+        '<div class="user-info">' +
+        '<span class="username">' + template.user + '</span>' +
+        '<br/>' +
+        '<span class="posted">' + template.posted + '</span>' +
+        '</div>' + 
+        '</div>' +  
+        '<p>' + template.topic + '</p>' +
+        '<p><a href="#" class="btn btn-info pull-right" role="button">Comment</a></p>' +
+        '</li>';
+
+      return result;
+    }
+  });
 
   socket.on('newsfeed', function(data) {
     var parsedData = JSON.parse(data);
