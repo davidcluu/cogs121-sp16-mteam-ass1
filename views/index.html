@@ -56,11 +56,11 @@
         <div class="panel-body">
           <!--headline form-->
           <form id="submit-thread" action="/get">
-            <input type="text" id="headline" placeholder="Create a Headline!" autocomplete="off">
+            <input type="text" id="headline" placeholder="Create a Headline!" autocomplete="off" {{#if user}} {{else}} disabled{{/if}} />
             <!--
               <input type="text" id="video_input" placeholder="Paste your video URL here!" autocomplete="off" /><br/>
                 -->
-            <input class="btn btn-success" type="submit" role="button" value="Submit">
+            <input class="btn btn-success" type="submit" role="button" value="Submit" {{#if user}} {{else}} disabled{{/if}}>
           </form>
           <hr>
           <ul id="topics">
@@ -93,10 +93,10 @@
         </div>
         <div class="panel-body">
           <form id="submit-comment" action="/get">
-            <input type="text" id="video_input" placeholder="Paste your video URL here!" autocomplete="off" />
+            <input type="text" id="video_input" placeholder="Paste your video URL here!" autocomplete="off" {{#if user}} {{else}} disabled {{/if}} />
             <br/>
-            <input type="text" id="user_input" placeholder="What's this video about?" autocomplete="off" />
-            <input class="btn btn-success" type="submit" role="button" value="submit">
+            <input type="text" id="user_input" placeholder="What's this video about?" autocomplete="off" {{#if user}} {{else}} disabled {{/if}} />
+            <input class="btn btn-success" type="submit" role="button" value="submit" {{#if user}} {{else}} disabled {{/if}} >
           </form>
         </div>
       </div>
