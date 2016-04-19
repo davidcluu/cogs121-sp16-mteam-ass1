@@ -22,6 +22,7 @@ var passport = require("passport");
 var router = {
   index: require("./routes/index"),
   query: require("./routes/query"),
+  help: require("./routes/help"),
   auth: {
     twitter: {
       auth: passport.authenticate('twitter'),
@@ -131,6 +132,8 @@ passport.deserializeUser(function(user, done) {
 // Routes
 app.get("/", router.index.view);
 app.get("/queryComments", router.query.queryComments);
+
+app.get("/help", router.help.view);
 
 app.get('/auth/twitter', router.auth.twitter.auth);
 app.get('/auth/twitter/callback', router.auth.twitter.callback);
