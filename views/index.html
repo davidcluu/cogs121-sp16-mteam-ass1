@@ -79,20 +79,6 @@
             <input class="btn btn-success" type="submit" role="button" value="Submit">
           </form>
           <hr>
-<!-- <<<<<<< HEAD
-          {{#each topicFeed}}
-          <p>
-          <div class="thread-title">{{topic}}</div>
-          </p>
-          <div class="user">
-            <div class="user-info">
-              <span class="username">{{user}}</span>&nbsp;
-              <span class="posted">{{posted}}</span>
-            </div>
-          </div>
-          <p><a href="#" class="btn btn-success pull-right" role="button">View Caption</a></p>
-          {{/each}}
-======= -->
           <ul id="topics">
             {{#each topicFeed}}
             <hr>
@@ -122,7 +108,7 @@
           <h3 class="panel-title">Post a Video</h3>
         </div>
         <div class="panel-body">
-          <form id="submit_video" action="/get">
+          <form id="submit-comment" action="/get">
             <input type="text" id="video_input" placeholder="YouTube URL" autocomplete="off" />
             <br/>
             <input type="text" id="user_input" placeholder="Video Caption" autocomplete="off" />
