@@ -131,6 +131,7 @@ passport.deserializeUser(function(user, done) {
 // Routes
 app.get("/", router.index.view);
 app.get("/queryComments", router.query.queryComments);
+app.delete("/deleteComment", router.query.deleteComment);
 
 app.get('/auth/twitter', router.auth.twitter.auth);
 app.get('/auth/twitter/callback', router.auth.twitter.callback);

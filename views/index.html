@@ -19,6 +19,7 @@
       {{/if}} -->
       <ul class="nav navbar-nav navbar-right">
       {{#if user}}
+        <div id="currentUser" hidden>{{user.username}}</div>
         <li class="dropdown pull-right">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hi, {{user.displayName}}! <span class="caret"></span></a>
           <ul class="dropdown-menu">

@@ -6,13 +6,12 @@ $(function (){
   var $comments = $('#comments');
 
   var currentThread = '';
+  var currentUser = $('#currentUser').text();
 
   var expanded = false;
 
   $('#messages').on('click', '.navUp', function(e){
     e.preventDefault();
-
-    console.log("ye");
 
     var PIXELS_PER_SECOND = 1500;
 
@@ -23,6 +22,25 @@ $(function (){
     obj.velocity('scroll', {
       duration: scrollDuration,
       easing: 'easing'
+    });
+  });
+
+  $('#messages').on('click', '.deletePost', function(e){
+    e.preventDefault();
+
+    var $holder = $(this).closest('li')
+
+    $.ajax({
+      url: '/deleteComment',
+      type: 'DELETE',
+      data: {
+        'user': $holder.find('.username').text(),
+        'videoCaption': $holder.children('p').text(),
+        'threadName': currentThread,
+        'posted': $holder.find('.posted').text()
+      }
+    }).done(function(comments, textStatus, jqXHR) {
+      $holder.parent('li').remove();
     });
   });
 
@@ -194,9 +212,13 @@ $(function (){
       '<div class="embed-responsive embed-responsive-4by3 message-content">' +
       '<iframe class="embed-responsive-item video" src="' + template.videoUrl + '"></iframe>' +
       '</div>' +
-      '<p>' + template.videoCaption + '</p>' +
-      '<a href="#" class="btn btn-success" role="button"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>&nbsp;&nbsp;Delete Post</a>' +
-      '<a href="#" class="btn btn-success pull-right navUp" role="button"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span></a>' +
+      '<p>' + template.videoCaption + '</p>';
+
+    if (currentUser == template.user) {
+      result = result + '<a href="#" class="btn btn-success deletePost" role="button"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>&nbsp;&nbsp;Delete Post</a>';
+    }
+
+    result = result + '<a href="#" class="btn btn-success pull-right navUp" role="button"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span></a>' +
       '</li>';
 
     return result;
