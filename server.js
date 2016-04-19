@@ -185,13 +185,14 @@ io.on('connection', function(socket){
         'user' : user.username,
         'videoUrl': videoLinkMod,
         'videoCaption': input.caption,
-        'threadName': 'temp',
+        'threadName': input.threadName,
       });
       newCommentFeed.save(function(err, news) {
         if (err) {
           return done(err);
         }
         
+        console.log(news);
         io.emit("newsfeed", JSON.stringify(news));
       });
     }

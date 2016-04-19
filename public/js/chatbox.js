@@ -5,71 +5,95 @@ $(function (){
   var $threads  = $('#threads');
   var $comments = $('#comments');
 
+  var currentThread = '';
+
+  var expanded = false;
+
   $('#topics').on('click', '.comment-button', {}, function(e){
     e.preventDefault();
-    console.log("hello");
 
-    var flag = false;
+    currentThread = $(this).parent().siblings('p').text();
 
-    $trending
-      .velocity({
-        width : 100.0/(12.0/3) + '%'
-      },{
-        duration : 500,
-        complete : function() {
-          $trending.removeAttr('style', '');
-          showComments();
+    if (!expanded) {
+      var flag = false;
+
+      $trending
+        .velocity({
+          width : 100.0/(12.0/3) + '%'
+        },{
+          duration : 500,
+          complete : function() {
+            $trending.removeAttr('style', '');
+            showComments();
+          }
+        })
+        .removeClass('col-md-5')
+        .addClass('col-md-3');
+
+
+      $threads
+        .velocity({
+          width : 100.0/(12.0/4) + '%'
+        },{
+          duration : 500,
+          complete : function() {
+            $threads.removeAttr('style', '');
+            showComments();
+          }
+        })
+        .removeClass('col-md-7')
+        .addClass('col-md-4');
+
+      function showComments() {
+        if (!flag) {
+          flag = true;
         }
-      })
-      .removeClass('col-md-5')
-      .addClass('col-md-3');
+        else {
+          $comments
+            .css('opacity', '0')
+            .removeClass('hidden')
+            .velocity({
+              opacity : 1
+            },{
+              duration : 1000,
+              complete : function() {
+                $comments.removeAttr('style', '');
+              }
+            });
 
+          $.get('/queryComments', {'threadName' : currentThread}, 'json')
+            .done(function(comments, textStatus, jqXHR) {
+              for (var i in comments) {
+                var currComment = comments[i];
+                $('#messages')
+                  .prepend($('<li>').html(commentTemplate(currComment)));
+              }
+            })
+            .fail(function(jqXHR, textStatus, errorThrown) {
+              console.log('ERROR:');
+              console.log(errorThrown);
+            })
 
-    $threads
-      .velocity({
-        width : 100.0/(12.0/4) + '%'
-      },{
-        duration : 500,
-        complete : function() {
-          $threads.removeAttr('style', '');
-          showComments();
+          expanded = true;
         }
-      })
-      .removeClass('col-md-7')
-      .addClass('col-md-4');
-
-    function showComments() {
-      if (!flag) {
-        flag = true;
       }
-      else {
-        $comments
-          .css('opacity', '0')
-          .removeClass('hidden')
-          .velocity({
-            opacity : 1
-          },{
-            duration : 1000,
-            complete : function() {
-              $comments.removeAttr('style', '');
-            }
-          });
 
-        $.get('/queryComments', {'threadName' : 'temp'}, 'json')
-          .done(function(comments, textStatus, jqXHR) {
-            for (var i in comments) {
-              var currComment = comments[i];
-              $('#messages')
-                .prepend($('<li>').html(commentTemplate(currComment)));
-            }
-          })
-          .fail(function(jqXHR, textStatus, errorThrown) {
-            console.log('ERROR:');
-            console.log(errorThrown);
-          })
+    }
+    else {
+      $('#messages').empty();
 
-        flag = false;
-      }
+      $.get('/queryComments', {'threadName' : currentThread}, 'json')
+        .done(function(comments, textStatus, jqXHR) {
+          for (var i in comments) {
+            var currComment = comments[i];
+            $('#messages')
+              .prepend($('<li>').html(commentTemplate(currComment)));
+          }
+        })
+        .fail(function(jqXHR, textStatus, errorThrown) {
+          console.log('ERROR:');
+          console.log(errorThrown);
+        })
     }
   })
 
@@ -88,7 +112,13 @@ $(function (){
 
     var $user_input = $('#user_input')
     var $video_input = $('#video_input')
-    socket.emit('newsfeed', { caption: $user_input.val(), video: $video_input.val()});
+
+    socket.emit('newsfeed', {
+      caption : $user_input.val(),
+      video : $video_input.val(),
+      threadName : currentThread
+    });
+
     $user_input.val('');
     $video_input.val('');
   })
