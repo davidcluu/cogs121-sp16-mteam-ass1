@@ -193,8 +193,16 @@ io.on('connection', function(socket){
           return done(err);
         }
 
-        console.log(news);
-        io.emit("newsfeed", JSON.stringify(news));
+        models.Thread
+          .findOne({topic: input.threadName})
+          .exec(function (err, thread){
+            thread.count = thread.count + 1;
+            console.log(thread.count);
+            thread.save(function(err) {
+              console.log(news);
+              io.emit("newsfeed", JSON.stringify(news));
+            });
+          });
       });
     }
   });
