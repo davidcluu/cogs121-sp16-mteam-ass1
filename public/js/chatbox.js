@@ -101,9 +101,15 @@ $(function (){
   $('#submit-thread').submit(function(e){
     e.preventDefault();
 
-    var $headline = $('#headline')
-    socket.emit('topicfeed', $headline.val());
-    $headline.val('');
+      var $headline = $('#headline')
+      console.log($headline.val());
+      if ($headline.val() === "") {
+        alert("Please write something for the headline!");
+      } else {
+        socket.emit('topicfeed', $headline.val());
+      }
+
+    $headline.val('');;
   })
 
   //Comments
@@ -113,11 +119,15 @@ $(function (){
     var $user_input = $('#user_input')
     var $video_input = $('#video_input')
 
-    socket.emit('newsfeed', {
-      caption : $user_input.val(),
-      video : $video_input.val(),
-      threadName : currentThread
-    });
+    if ($video_input.val() === "") {
+      alert("Please submit a video!");
+    } else {
+      socket.emit('newsfeed', {
+        caption : $user_input.val(),
+        video : $video_input.val(),
+        threadName : currentThread
+      });
+    }
 
     $user_input.val('');
     $video_input.val('');
@@ -128,6 +138,7 @@ $(function (){
     parsedData.posted = new Date(parsedData.posted);
 
     $('#topics').prepend($('<li>').html(topicTemplate(parsedData)));
+    alert("Headline successfully submitted!");
   });
 
   function topicTemplate(template) {

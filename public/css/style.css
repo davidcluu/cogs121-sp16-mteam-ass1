@@ -22,6 +22,10 @@ body {
    letter-spacing: -0.06em;
 }
 
+.navbar-brand {
+  float: right;
+}
+
 #container {
    background-color: #FAFAFA;
    font-family: 'Questrial', sans-serif;
