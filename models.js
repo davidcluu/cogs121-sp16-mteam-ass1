@@ -19,6 +19,7 @@ var UserSchema = new Schema({
 var ThreadSchema = new Schema({
   'user': String,
   'topic': String,
+  'count': { type: Number, default: 0 },
   'posted': { type: Date, default: Date.now() }
 });
 

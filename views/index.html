@@ -1,165 +1,165 @@
+<div id="container">
 <!-- nav bar -->
 <nav class="navbar bar-color navbar-static-top">
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/">👀 iWitness News</a>
-        </div>
-        <ul class="nav navbar-nav navbar-right">
-            {{#if user}}
-            <li class="dropdown pull-right">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hi, {{user.displayName}}! <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                    <!-- <li><a href="#">About</a></li> -->
-                    <li><a href="/help">Help <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a></li>
-                    <!-- <li><a href="#">Something else here</a></li> -->
-                    <li role="separator" class="divider"></li>
-                    <li><a href="/logout">Sign Out</a></li>
-                </ul>
-            </li>
-            {{else}}
-            <a href="/auth/twitter">
-                <button type="button" class="btn btn-info navbar-btn">Login with Twitter</button>
-            </a>
-            {{/if}}
-        </ul>
-    </div>
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">👀 iWitness News</a>
+   </div>
+      <!-- {{#if user}}
+      <a href="/logout"><button type="button" class="btn btn-info navbar-btn">Logout</button></a>
+      {{else}}
+      <a href="/auth/twitter"><button type="button" class="btn btn-info navbar-btn">Login with Twitter</button></a>
+      {{/if}} -->
+      <ul class="nav navbar-nav navbar-right">
+      {{#if user}}
+        <div id="currentUser" hidden>{{user.username}}</div>
+        <li class="dropdown pull-right">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hi, {{user.displayName}}! <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <!-- <li><a href="#">About</a></li> -->
+            <li><a href="#">New to iWitness?</a></li>
+            <!-- <li><a href="#">Something else here</a></li> -->
+            <li role="separator" class="divider"></li>
+            <li><a href="/logout">Sign Out</a></li>
+          </ul>
+        </li>
+        {{else}}
+       <a href="/auth/twitter"><button type="button" class="btn btn-info navbar-btn">Login with Twitter</button></a>
+       {{/if}}
+      </ul>
+  </div>
 </nav>
 <!-- end nav bar -->
-<div id="container">
-    <div class="container-fluid">
-        <div class="row">
-            <div id="trending" class="col-md-5">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Trending News</h3>
-                    </div>
-                    <div class="panel-body">
-                        <hr>
-                        <div class="user">
-                            <!-- <div class="user-image">
+<div class="container-fluid">
+  <div class="row">
+    <div id="trending" class="col-md-5">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">Trending News</h3>
+        </div>
+        <div class="panel-body">
+          <hr>
+          <div class="user">
+            <!-- <div class="user-image">
               <img src="{{user.photo}}" alt="">
               </div> -->
-                            <div class="user-info">
-                                <span class="username">username</span>&nbsp;
-                                <span class="posted">posted</span>
-                            </div>
-                        </div>
-                        <div class="embed-responsive embed-responsive-4by3">
-                            <iframe class="embed-responsive-item video" src="https://www.youtube.com/embed/e-ORhEE9VVg"></iframe>
-                        </div>
-                        <caption>Video Caption</caption>
-                        <p><a href="#" class="btn btn-success pull-right" role="button">View Comments</a></p>
-                    </div>
-                </div>
+            <div class="user-info">
+              <span class="username">username</span>&nbsp;
+              <span class="posted">posted</span>
             </div>
+          </div>
+          <div class="embed-responsive embed-responsive-4by3">
+            <iframe class="embed-responsive-item video" src="https://www.youtube.com/embed/e-ORhEE9VVg"></iframe>
+          </div>
+          <caption>Video Caption</caption>
+          <p><a href="#" class="btn btn-success pull-right" role="button">View Comments</a></p>
+        </div>
+      </div>
+    </div>
 
-            <!--Topic Threads-->
-            <div id="threads" class="col-md-7">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        {{#if user}}{{else}}
-                        <div class="alert">You need to be logged in to submit posts!</div>{{/if}}
-                        <h3 class="panel-title">Make a Headline</h3>
-                    </div>
-                    <div class="panel-body">
-                        <!--headline form-->
-                        <form id="submit-thread" action="/get">
+    <!--Topic Threads-->
+    <div id="threads" class="col-md-7">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          {{#if user}}{{else}}<div class="alert">You need to be logged in to submit posts!</div>{{/if}}
+          <h3 class="panel-title">Make a Headline</h3>
+        </div>
+        <div class="panel-body">
+          <!--headline form-->
+          <form id="submit-thread" action="/get">
 
-                            <input type="text" id="headline" placeholder="Headline Name" autocomplete="off" {{#if user}} {{else}} disabled{{/if}} />
-                            <!--
+            <input type="text" id="headline" placeholder="Headline Name" autocomplete="off" {{#if user}} {{else}} disabled{{/if}} />
+            <!--
               <input type="text" id="video_input" placeholder="Paste your video URL here!" autocomplete="off" /><br/>
                 -->
-                            <input class="btn btn-success" type="submit" role="button" value="Submit" {{#if user}} {{else}} disabled{{/if}}>
-                        </form>
-                        <hr>
-                        <ul id="topics">
-                            {{#each topicFeed}}
-                            <hr>
-                            <li>
-                                <div class="user">
-                                    <!-- <div class="user-image">
+            <input class="btn btn-success" type="submit" role="button" value="Submit" {{#if user}} {{else}} disabled{{/if}}>
+          </form>
+          <hr>
+          <ul id="topics">
+            {{#each topicFeed}}
+            <hr>
+            <li>
+              <div class="user">
+                <!-- <div class="user-image">
                   <img src="{{photo}}" alt="">
                   </div> -->
-                                    <div class="topic-style">
-                                        <p>{{topic}}</p>
-                                    </div>
-                                    <div class="user-info">
-                                        submitted by <span class="username">{{user}}</span> at
-                                        <span class="posted">{{posted}}</span>
-                                    </div>
-                                </div>
-                                <p><a href="#" class="btn btn-success pull-right comment-button" role="button">View Comments</a></p>
-                            </li>
-                            {{/each}}
-                        </ul>
-                    </div>
+                <div class="user-info">
+                  <span class="username">{{user}}</span>
+                  <br/>
+                  <span class="posted">{{posted}}</span>
                 </div>
-                <!-- </section> -->
-            </div>
-            <div id="comments" class="col-md-5 hidden">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        {{#if user}}{{else}}
-                        <div class="alert">You need to be logged in to submit comments!</div>{{/if}}
-                        <h3 class="panel-title">Post a Video</h3>
-                    </div>
-                    <div class="panel-body">
-                        <form id="submit-comment" action="/get">
-                            <input type="text" id="video_input" placeholder="Paste your video URL here!" autocomplete="off" {{#if user}} {{else}} disabled {{/if}} />
-                            <br/>
-                            <input type="text" id="user_input" placeholder="What's this video about?" autocomplete="off" {{#if user}} {{else}} disabled {{/if}} />
-                            <input class="btn btn-success" type="submit" role="button" value="submit" {{#if user}} {{else}} disabled {{/if}}>
-                        </form>
-                    </div>
-                </div>
-                <!-- <ul id="messages"> -->
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Incoming News</h3>
-                    </div>
-                    <div class="panel-body">
-                        <ul id="messages">
-                            {{#each commentFeed}}
-                            <hr>
-                            <li>
-                                <div class="user">
-                                    <!-- <div class="user-image">
-                  <img src="{{photo}}" alt="">
-                  </div> -->
-                                    <div class="user-info">
-                                        <span class="username">{{user}}</span>
-                                        <br/>
-                                        <span class="posted">{{posted}}</span>
-                                    </div>
-                                </div>
-                                <div class="embed-responsive embed-responsive-4by3 message-content">
-                                    <iframe class="embed-responsive-item video" src="{{videoUrl}}"></iframe>
-                                </div>
-                                <p>{{videoCaption}}</p>
-                                <a href="#" class="btn btn-success" role="button"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>&nbsp;&nbsp;Delete Post</a>
-                                <a href="#" class="btn btn-success pull-right" role="button"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span>&nbsp;&nbsp;Comment</a>
-                            </li>
-                            {{/each}}
-
-                            <!-- commentFeed -->
-
-                        </ul>
-                    </div>
-                </div>
-                <!-- </div> -->
-            </div>
+              </div>
+              <p>{{topic}}</p>
+              <p><a href="#" class="btn btn-success pull-right comment-button" role="button">View Comments</a></p>
+            </li>
+            {{/each}}
+          </ul>
         </div>
+      </div>
+      <!-- </section> -->
     </div>
+    <div id="comments" class="col-md-5 hidden">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          {{#if user}}{{else}}<div class="alert">You need to be logged in to submit comments!</div>{{/if}}
+          <h3 class="panel-title">Post a Video</h3>
+        </div>
+        <div class="panel-body">
+          <form id="submit-comment" action="/get">
+            <input type="text" id="video_input" placeholder="Paste your video URL here!" autocomplete="off" {{#if user}} {{else}} disabled {{/if}} />
+            <br/>
+            <input type="text" id="user_input" placeholder="What's this video about?" autocomplete="off" {{#if user}} {{else}} disabled {{/if}} />
+            <input class="btn btn-success" type="submit" role="button" value="submit" {{#if user}} {{else}} disabled {{/if}} >
+          </form>
+        </div>
+      </div>
+      <!-- <ul id="messages"> -->
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">Incoming News</h3>
+        </div>
+        <div class="panel-body">
+          <ul id="messages">
+            {{#each commentFeed}}
+            <hr>
+            <li>
+              <div class="user">
+                <!-- <div class="user-image">
+                  <img src="{{photo}}" alt="">
+                  </div> -->
+                <div class="user-info">
+                  <span class="username">{{user}}</span>
+                  <br/>
+                  <span class="posted">{{posted}}</span>
+                </div>
+              </div>
+              <div class="embed-responsive embed-responsive-4by3 message-content">
+                <iframe class="embed-responsive-item video" src="{{videoUrl}}"></iframe>
+              </div>
+              <p>{{videoCaption}}</p>
+              <a href="#" class="btn btn-success" role="button"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>&nbsp;&nbsp;Delete Post</a>
+              <a href="#" class="btn btn-success pull-right" role="button"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span>&nbsp;&nbsp;Comment</a>
+            </li>
+            {{/each}}
+
+            <!-- commentFeed -->
+
+          </ul>
+        </div>
+      </div>
+      <!-- </div> -->
+    </div>
+  </div>
 </div>
 <div id="footer">
-    <div class="container">
-        <p>&copy; COGS 121 Team M, 2016.</p>
-    </div>
+  <div class="container">
+    <p>&copy; COGS 121 Team M, 2016.</p>
+  </div>
 </div>

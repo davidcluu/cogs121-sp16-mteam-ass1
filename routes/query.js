@@ -8,12 +8,24 @@ exports.queryComments = function(req, res) {
   }
   else {
     models.Comment
-    .find({
-      'threadName' : threadName
-    })
-    .exec(function(err, comments) {
-      res.json(comments);
-    });
-  }
+      .find({
+        'threadName' : threadName
+      })
+      .exec(function(err, comments) {
+        if (err) console.log(err);
 
+        res.json(comments);
+      });
+  }
+};
+
+exports.deleteComment = function(req, res) {
+  models.Comment
+    .find(req.body)
+    .remove()
+    .exec(function(err) {
+      if (err) console.log(err);
+      
+      res.sendStatus(200);
+    });
 };
