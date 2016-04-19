@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -28,70 +29,73 @@
     <script src="/js/chatbox.js"></script>
     <script src="/js/search.js"></script>
 
-  </head>
+</head>
 
 <body>
-   <nav class="navbar bar-color navbar-static-top">
-     <div class="container-fluid">
-       <!-- Brand and toggle get grouped for better mobile display -->
-       <div class="navbar-header">
-         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-         <span class="sr-only">Toggle navigation</span>
-         <span class="icon-bar"></span>
-         <span class="icon-bar"></span>
-         <span class="icon-bar"></span>
-         </button>
-         <a class="navbar-brand" href="/">👀 iWitness News</a>
-      </div>
-         <ul class="nav navbar-nav navbar-right">
-         {{#if user}}
-           <li class="dropdown pull-right">
-             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hi, {{user.displayName}}! <span class="caret"></span></a>
-             <ul class="dropdown-menu">
-               <!-- <li><a href="#">About</a></li> -->
-               <li><a href="/help">Help <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a></li>
-               <!-- <li><a href="#">Something else here</a></li> -->
-               <li role="separator" class="divider"></li>
-               <li><a href="/logout">Sign Out</a></li>
-             </ul>
-           </li>
-           {{else}}
-          <a href="/auth/twitter"><button type="button" class="btn btn-info navbar-btn">Login with Twitter</button></a>
-          {{/if}}
-         </ul>
-     </div>
-   </nav>
-<div id="help-container">
-   <div class="panel panel-primary">
-    <div class="panel-heading">
-       <h3 class="panel-title">About iWitness News</h3>
+    <nav class="navbar bar-color navbar-static-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">👀 iWitness News</a>
+            </div>
+            <ul class="nav navbar-nav navbar-right">
+                {{#if user}}
+                <li class="dropdown pull-right">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hi, {{user.displayName}}! <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <!-- <li><a href="#">About</a></li> -->
+                        <li><a href="/help">Help <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a></li>
+                        <!-- <li><a href="#">Something else here</a></li> -->
+                        <li role="separator" class="divider"></li>
+                        <li><a href="/logout">Sign Out</a></li>
+                    </ul>
+                </li>
+                {{else}}
+                <a href="/auth/twitter">
+                    <button type="button" class="btn btn-info navbar-btn">Login with Twitter</button>
+                </a>
+                {{/if}}
+            </ul>
+        </div>
+    </nav>
+    <div id="help-container">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">About iWitness News</h3>
+            </div>
+            <div class="panel-body">
+                <p>
+                    iWitness News aims to give users the inside scoop on events happening right here, right now. Made for the Snapchat and Instagram generation, iWitness News allows users to get first-hand accounts of all the crazy and wild things happening in our world
+                    today. Users can browse through videos related to a user-generated Headline, post their own video response, or create a new Headline all of their own!
+                </p>
+            </div>
+        </div>
+
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">New to iWitness News?</h3>
+            </div>
+            <div class="panel-body">
+                <ol>
+                    <li>Login with Twitter.</li>
+                    <li>Click a Headline to view related Video Responses that other users have posted!</li>
+                    <li>Contribute your own Headlines and Video Responses!</li>
+                </ol>
+            </div>
+        </div>
     </div>
-    <div class="panel-body">
-      <p>
-         iWitness News aims to give users the inside scoop on events happening right here, right now.
-         Made for the Snapchat and Instagram generation, iWitness News allows users to get first-hand accounts of all the crazy and wild things happening in our world today.
-         Users can browse through videos related to a user-generated Headline, post their own video response, or create a new Headline all of their own!
-      </p>
-    </div>
-   </div>
-   <div class="panel panel-primary">
-    <div class="panel-heading">
-       <h3 class="panel-title">New to iWitness News?</h3>
-    </div>
-    <div class="panel-body">
-      <ol>
-          <li>Login with Twitter.</li>
-          <li>Click a Headline to view related Video Responses that other users have posted!</li>
-          <li>Contribute your own Headlines and Video Responses!</li>
-      </ol>
-    </div>
-   </div>
-</div>
 </body>
 
 <div id="footer" class="help-footer">
-  <div class="container">
-    <p>&copy; COGS 121 Team M, 2016.</p>
-  </div>
+    <div class="container">
+        <p>&copy; COGS 121 Team M, 2016.</p>
+    </div>
 </div>
+
 </html>
