@@ -119,11 +119,15 @@ $(function (){
     var $user_input = $('#user_input')
     var $video_input = $('#video_input')
 
-    socket.emit('newsfeed', {
-      caption : $user_input.val(),
-      video : $video_input.val(),
-      threadName : currentThread
-    });
+    if ($video_input.val() === "") {
+      alert("Please submit a video!");
+    } else {
+      socket.emit('newsfeed', {
+        caption : $user_input.val(),
+        video : $video_input.val(),
+        threadName : currentThread
+      });
+    }
 
     $user_input.val('');
     $video_input.val('');
