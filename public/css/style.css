@@ -91,3 +91,8 @@ form>input {
     padding: 20px;
     padding-bottom: 10px
 }
+
+.alert {
+  background-color: #D64B4B;
+  color: white;
+}

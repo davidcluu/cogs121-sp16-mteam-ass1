@@ -58,7 +58,7 @@
             <iframe class="embed-responsive-item video" src="https://www.youtube.com/embed/e-ORhEE9VVg"></iframe>
           </div>
           <caption>Video Caption</caption>
-          <p><a href="#" class="btn btn-success pull-right" role="button">Comment</a></p>
+          <p><a href="#" class="btn btn-success pull-right" role="button">View Comments</a></p>
         </div>
       </div>
     </div>
@@ -67,6 +67,7 @@
     <div id="threads" class="col-md-7">
       <div class="panel panel-primary">
         <div class="panel-heading">
+          <div class="alert">You need to be logged in to submit posts!</div>
           <h3 class="panel-title">Make a Headline</h3>
         </div>
         <div class="panel-body">
@@ -109,7 +110,7 @@
                 </div>
               </div>
               <p>{{topic}}</p>
-              <p><a href="#" class="btn btn-success pull-right comment-button" role="button">View Comment</a></p>
+              <p><a href="#" class="btn btn-success pull-right comment-button" role="button">View Comments</a></p>
             </li>
             {{/each}}
           </ul>
@@ -120,6 +121,7 @@
     <div id="comments" class="col-md-5 hidden">
       <div class="panel panel-primary">
         <div class="panel-heading">
+          <div class="alert">You need to be logged in to submit comments!</div>
           <h3 class="panel-title">Post a Video</h3>
         </div>
         <div class="panel-body">
