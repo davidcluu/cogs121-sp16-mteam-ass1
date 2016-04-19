@@ -4,8 +4,22 @@ body {
   /* The html and body elements cannot have any padding or margin. */
 }
 
+.panel {
+  border-radius: 0 !important;
+  -webkit-border-radius: 0 !important;
+   -moz-border-radius: 0 !important;
+        border-radius: 0 !important;
+}
+
 .bar-color {
-   background-color: #4DB6AC;
+   /*background-color: #4DB6AC;*/
+   background-color: #fff;
+}
+.panel-title {
+   font-family: 'Old Standard TT', serif;
+   font-weight: 700;
+   text-transform: uppercase;
+   letter-spacing: -0.06em;
 }
 
 .navbar-brand {
@@ -14,7 +28,7 @@ body {
 
 #container {
    background-color: #FAFAFA;
-   font-family: 'Didact Gothic', sans-serif;
+   font-family: 'Questrial', sans-serif;
 }
 /* Wrapper for page content to push down footer */
 #wrap {
@@ -29,7 +43,8 @@ body {
 /* Set the fixed height of the footer here */
 #footer {
   height: 60px;
-  color: #f5f5f5;
+  color: #fff;
+  background-color: #a4ccd5;
   text-align: center;
   font-size: 1em;
   padding-top: 20px;
@@ -44,7 +59,7 @@ hr {
    clear: both;
 }
 
-#user_input, #video_input {
+#user_input, #video_input, #headline {
    margin-bottom: 15px;
 }
 

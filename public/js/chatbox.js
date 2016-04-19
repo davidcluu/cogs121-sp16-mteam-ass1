@@ -142,15 +142,15 @@ $(function (){
   });
 
   function topicTemplate(template) {
-    var result = '<hr>' + 
-      '<li>' + 
-      '<div class="user">' + 
+    var result = '<hr>' +
+      '<li>' +
+      '<div class="user">' +
       '<div class="user-info">' +
       '<span class="username">' + template.user + '</span>' +
       '<br/>' +
       '<span class="posted">' + template.posted + '</span>' +
-      '</div>' + 
-      '</div>' +  
+      '</div>' +
+      '</div>' +
       '<p>' + template.topic + '</p>' +
       '<p><a href="#" class="btn btn-info pull-right comment-button" role="button">Comment</a></p>' +
       '</li>';
@@ -161,25 +161,26 @@ $(function (){
   socket.on('newsfeed', function(data) {
     var parsedData = JSON.parse(data);
     parsedData.posted = new Date(parsedData.posted);
-
     $('#messages').prepend($('<li>').html(commentTemplate(parsedData)));
   });
 
   function commentTemplate(template) {
-    var result = '<hr>' + 
-      '<li>' + 
-      '<div class="user">' + 
+    var result = '<hr>' +
+      '<li>' +
+      '<div class="user">' +
       '<div class="user-info">' +
       '<span class="username">' + template.user + '</span>' +
       '<br/>' +
       '<span class="posted">' + template.posted + '</span>' +
-      '</div>' + 
-      '</div>' + 
+      '</div>' +
+      '</div>' +
       '<div class="embed-responsive embed-responsive-4by3 message-content">' +
       '<iframe class="embed-responsive-item video" src="' + template.videoUrl + '"></iframe>' +
-      '</div>' + 
+      '</div>' +
       '<p>' + template.videoCaption + '</p>' +
-      '<p><a href="#" class="btn btn-info pull-right" role="button">Comment</a></p>' +
+      '<a href="#" class="btn btn-success" role="button"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>&nbsp;&nbsp;Delete Post</a>' +
+      '<a href="#" class="btn btn-success pull-right" role="button"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span>&nbsp;&nbsp;Comment</a>' +
+
       '</li>';
 
     return result;
