@@ -4,7 +4,8 @@ exports.view = function(req, res) {
   var user = req.user;
   if (user) {
     user = {
-      username: user.username
+      username: user.username,
+      displayName: user.displayName
     }
   }
 

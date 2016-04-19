@@ -10,13 +10,29 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/">iWitness News</a>
-      {{#if user}}
+      <a class="navbar-brand" href="/">👀 iWitness News</a>
+   </div>
+      <!-- {{#if user}}
       <a href="/logout"><button type="button" class="btn btn-info navbar-btn">Logout</button></a>
       {{else}}
       <a href="/auth/twitter"><button type="button" class="btn btn-info navbar-btn">Login with Twitter</button></a>
-      {{/if}}
-    </div>
+      {{/if}} -->
+      <ul class="nav navbar-nav navbar-right">
+      {{#if user}}
+        <li class="dropdown pull-right">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hi, {{user.displayName}}! <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <!-- <li><a href="#">About</a></li> -->
+            <li><a href="#">New to iWitness?</a></li>
+            <!-- <li><a href="#">Something else here</a></li> -->
+            <li role="separator" class="divider"></li>
+            <li><a href="/logout">Sign Out</a></li>
+          </ul>
+        </li>
+        {{else}}
+       <a href="/auth/twitter"><button type="button" class="btn btn-info navbar-btn">Login with Twitter</button></a>
+       {{/if}}
+      </ul>
   </div>
 </nav>
 <!-- end nav bar -->
@@ -42,7 +58,7 @@
             <iframe class="embed-responsive-item video" src="https://www.youtube.com/embed/e-ORhEE9VVg"></iframe>
           </div>
           <caption>Video Caption</caption>
-          <p><a href="#" class="btn btn-info pull-right" role="button">Comment</a></p>
+          <p><a href="#" class="btn btn-success pull-right" role="button">Comment</a></p>
         </div>
       </div>
     </div>
@@ -50,12 +66,12 @@
     <div class="col-md-4">
       <div class="panel panel-primary">
         <div class="panel-heading">
-          <h3 class="panel-title">Headlines</h3>
+          <h3 class="panel-title">Make a Headline</h3>
         </div>
         <div class="panel-body">
           <!--headline form-->
           <form id="send_message" action="/get">
-            <input type="text" id="tmp" placeholder="Create a Headline!" autocomplete="off">
+            <input type="text" id="tmp" placeholder="Headline Name" autocomplete="off">
             <!--
               <input type="text" id="video_input" placeholder="Paste your video URL here!" autocomplete="off" /><br/>
                 -->
@@ -72,7 +88,7 @@
               <span class="posted">{{posted}}</span>
             </div>
           </div>
-          <p><a href="#" class="btn btn-info pull-right" role="button">View Caption</a></p>
+          <p><a href="#" class="btn btn-success pull-right" role="button">View Caption</a></p>
           {{/each}}
         </div>
       </div>
@@ -81,14 +97,14 @@
     <div class="col-md-5">
       <div class="panel panel-primary">
         <div class="panel-heading">
-          <h3 class="panel-title">Write a Comment!</h3>
+          <h3 class="panel-title">Post a Video</h3>
         </div>
         <div class="panel-body">
           <form id="submit_video" action="/get">
-            <input type="text" id="video_input" placeholder="Paste your video URL here!" autocomplete="off" />
+            <input type="text" id="video_input" placeholder="YouTube URL" autocomplete="off" />
             <br/>
-            <input type="text" id="user_input" placeholder="What's this video about?" autocomplete="off" />
-            <input class="btn btn-success" type="submit" role="button" value="submit">
+            <input type="text" id="user_input" placeholder="Video Caption" autocomplete="off" />
+            <input class="btn btn-success" type="submit" role="button" value="Submit">
           </form>
         </div>
       </div>
@@ -116,7 +132,8 @@
                 <iframe class="embed-responsive-item video" src="{{videoUrl}}"></iframe>
               </div>
               <p>{{videoCaption}}</p>
-              <p><a href="#" class="btn btn-info pull-right" role="button">Comment</a></p>
+              <a href="#" class="btn btn-success" role="button"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>&nbsp;&nbsp;Delete Post</a>
+              <a href="#" class="btn btn-success pull-right" role="button"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span>&nbsp;&nbsp;Comment</a>
             </li>
             {{/each}}
           </ul>
@@ -126,7 +143,7 @@
     </div>
   </div>
 </div>
-<div class="bar-color" id="footer">
+<div id="footer">
   <div class="container">
     <p>&copy; COGS 121 Team M, 2016.</p>
   </div>
