@@ -23,3 +23,4 @@
   * There is a help page under the user menu that explains how to use the iWitness News app.
 
 ## Contributions
+Marvin - Worked on designing app layout on paper, organizing the trending headlines, adding ability to edit headlines.
