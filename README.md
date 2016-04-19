@@ -2,7 +2,7 @@
 
 ## Heuristics
 1. Visibility of system status
-  * User gets an alert when the video has been successfully uploaded.
+  * The user can see their post uploaded to the page after they press submit; an alert is not necessary because the feedback from the system is immediate.
 2. Match between system and the real world
   * New items appear on towards the top of the application as older items move towards the bottom of the app.
 3. User control and freedom
@@ -23,4 +23,11 @@
   * There is a help page under the user menu that explains how to use the iWitness News app.
 
 ## Contributions
-Marvin - Worked on designing app layout on paper, organizing the trending headlines, adding ability to edit headlines.
+* Lauren
+  * I worked on the backend functionality of the video comments thread and user responses/alerts.
+* David
+  *
+* Christine
+  * I mostly worked on the front-end and visual layout of the app.
+* Marvin
+  * Worked on some smaller backend things and helped come up with visual layout.
