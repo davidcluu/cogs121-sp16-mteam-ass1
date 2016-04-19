@@ -12,17 +12,11 @@ exports.view = function(req, res) {
     .find()
     .sort('-posted')
     .exec(function(err, topics) {
-      models.Comment
-	  	.find()
-	  	.exec(function(err, comments) {
-	  	  var data = {
-	  	  	user: user,
-	  	  	topicFeed : topics,
-	  	  	commentFeed: comments
-	  	  }
-	  	  res.render("index", data);
-	  	});
+  	  var data = {
+  	  	user: user,
+  	  	topicFeed : topics
+  	  }
+  	  res.render("index", data);
     });
-
 
 };

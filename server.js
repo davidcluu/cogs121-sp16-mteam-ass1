@@ -21,6 +21,7 @@ var passport = require("passport");
 
 var router = {
   index: require("./routes/index"),
+  query: require("./routes/query"),
   auth: {
     twitter: {
       auth: passport.authenticate('twitter'),
@@ -129,6 +130,7 @@ passport.deserializeUser(function(user, done) {
 
 // Routes
 app.get("/", router.index.view);
+app.get("/queryComments", router.query.queryComments);
 
 app.get('/auth/twitter', router.auth.twitter.auth);
 app.get('/auth/twitter/callback', router.auth.twitter.callback);
@@ -182,7 +184,8 @@ io.on('connection', function(socket){
       var newCommentFeed = new models.Comment ({
         'user' : user.username,
         'videoUrl': videoLinkMod,
-        'videoCaption': input.caption
+        'videoCaption': input.caption,
+        'threadName': 'temp',
       });
       newCommentFeed.save(function(err, news) {
         if (err) {

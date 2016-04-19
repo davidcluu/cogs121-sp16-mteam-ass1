@@ -5,8 +5,9 @@ $(function (){
   var $threads  = $('#threads');
   var $comments = $('#comments');
 
-  $('#submit-thread').submit(function(e){
+  $('#topics').on('click', '.comment-button', {}, function(e){
     e.preventDefault();
+    console.log("hello");
 
     var flag = false;
 
@@ -54,13 +55,26 @@ $(function (){
             }
           });
 
+        $.get('/queryComments', {'threadName' : 'temp'}, 'json')
+          .done(function(comments, textStatus, jqXHR) {
+            for (var i in comments) {
+              var currComment = comments[i];
+              $('#messages')
+                .prepend($('<li>').html(commentTemplate(currComment)));
+            }
+          })
+          .fail(function(jqXHR, textStatus, errorThrown) {
+            console.log('ERROR:');
+            console.log(errorThrown);
+          })
+
         flag = false;
       }
     }
   })
 
   //Threads
-  $('#submit-headline').submit(function(e){
+  $('#submit-thread').submit(function(e){
     e.preventDefault();
 
     var $headline = $('#headline')
@@ -83,50 +97,51 @@ $(function (){
     var parsedData = JSON.parse(data);
     parsedData.posted = new Date(parsedData.posted);
 
-    $('#topics').prepend($('<li>').html(messageTemplate(parsedData)));
-
-    function messageTemplate(template) {
-      var result = '<hr>' + 
-        '<li>' + 
-        '<div class="user">' + 
-        '<div class="user-info">' +
-        '<span class="username">' + template.user + '</span>' +
-        '<br/>' +
-        '<span class="posted">' + template.posted + '</span>' +
-        '</div>' + 
-        '</div>' +  
-        '<p>' + template.topic + '</p>' +
-        '<p><a href="#" class="btn btn-info pull-right" role="button">Comment</a></p>' +
-        '</li>';
-
-      return result;
-    }
+    $('#topics').prepend($('<li>').html(topicTemplate(parsedData)));
   });
+
+  function topicTemplate(template) {
+    var result = '<hr>' + 
+      '<li>' + 
+      '<div class="user">' + 
+      '<div class="user-info">' +
+      '<span class="username">' + template.user + '</span>' +
+      '<br/>' +
+      '<span class="posted">' + template.posted + '</span>' +
+      '</div>' + 
+      '</div>' +  
+      '<p>' + template.topic + '</p>' +
+      '<p><a href="#" class="btn btn-info pull-right comment-button" role="button">Comment</a></p>' +
+      '</li>';
+
+    return result;
+  }
 
   socket.on('newsfeed', function(data) {
     var parsedData = JSON.parse(data);
     parsedData.posted = new Date(parsedData.posted);
 
-    $('#messages').prepend($('<li>').html(messageTemplate(parsedData)));
-
-    function messageTemplate(template) {
-      var result = '<hr>' + 
-        '<li>' + 
-        '<div class="user">' + 
-        '<div class="user-info">' +
-        '<span class="username">' + template.user + '</span>' +
-        '<br/>' +
-        '<span class="posted">' + template.posted + '</span>' +
-        '</div>' + 
-        '</div>' + 
-        '<div class="embed-responsive embed-responsive-4by3 message-content">' +
-        '<iframe class="embed-responsive-item video" src="' + template.videoUrl + '"></iframe>' +
-        '</div>' + 
-        '<p>' + template.videoCaption + '</p>' +
-        '<p><a href="#" class="btn btn-info pull-right" role="button">Comment</a></p>' +
-        '</li>';
-
-      return result;
-    }
+    $('#messages').prepend($('<li>').html(commentTemplate(parsedData)));
   });
+
+  function commentTemplate(template) {
+    var result = '<hr>' + 
+      '<li>' + 
+      '<div class="user">' + 
+      '<div class="user-info">' +
+      '<span class="username">' + template.user + '</span>' +
+      '<br/>' +
+      '<span class="posted">' + template.posted + '</span>' +
+      '</div>' + 
+      '</div>' + 
+      '<div class="embed-responsive embed-responsive-4by3 message-content">' +
+      '<iframe class="embed-responsive-item video" src="' + template.videoUrl + '"></iframe>' +
+      '</div>' + 
+      '<p>' + template.videoCaption + '</p>' +
+      '<p><a href="#" class="btn btn-info pull-right" role="button">Comment</a></p>' +
+      '</li>';
+
+    return result;
+  }
+
 });
