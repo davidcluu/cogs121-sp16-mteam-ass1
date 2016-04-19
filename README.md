@@ -24,10 +24,10 @@
 
 ## Contributions
 * Lauren
-  * I worked on the backend functionality of the video comments thread and user responses/alerts.
+  * Worked on the backend functionality of the video comments thread and user responses/alerts.
 * David
-  *
+  * Worked on the backend of the application-- functionality of the threads, comments, and trending. Set up the environment.
 * Christine
-  * I mostly worked on the front-end and visual layout of the app.
+  * Mostly worked on the front-end and visual layout of the app.
 * Marvin
-  *
+  * Worked on some smaller backend things and helped come up with visual layout.
