@@ -92,6 +92,11 @@ form>input {
     padding-bottom: 10px
 }
 
+.topic-style {
+  font-size: 18epx;
+  font-weight: bold;
+}
+
 .alert {
   background-color: #D64B4B;
   color: white;
