@@ -67,7 +67,7 @@
     <div id="threads" class="col-md-7">
       <div class="panel panel-primary">
         <div class="panel-heading">
-          <div class="alert">You need to be logged in to submit posts!</div>
+          {{#if user}}{{else}}<div class="alert">You need to be logged in to submit posts!</div>{{/if}}
           <h3 class="panel-title">Make a Headline</h3>
         </div>
         <div class="panel-body">
@@ -107,7 +107,7 @@
     <div id="comments" class="col-md-5 hidden">
       <div class="panel panel-primary">
         <div class="panel-heading">
-          <div class="alert">You need to be logged in to submit comments!</div>
+          {{#if user}}{{else}}<div class="alert">You need to be logged in to submit comments!</div>{{/if}}
           <h3 class="panel-title">Post a Video</h3>
         </div>
         <div class="panel-body">
