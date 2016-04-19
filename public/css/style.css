@@ -8,6 +8,10 @@ body {
    background-color: #4DB6AC;
 }
 
+.navbar-brand {
+  float: right;
+}
+
 #container {
    background-color: #FAFAFA;
    font-family: 'Didact Gothic', sans-serif;

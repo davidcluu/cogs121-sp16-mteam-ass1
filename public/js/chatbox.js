@@ -77,8 +77,14 @@ $(function (){
   $('#submit-thread').submit(function(e){
     e.preventDefault();
 
-    var $headline = $('#headline')
-    socket.emit('topicfeed', $headline.val());
+      var $headline = $('#headline')
+      console.log($headline.val());
+      if ($headline.val() === "") {
+        alert("Please write something for the headline!");
+      } else {
+        socket.emit('topicfeed', $headline.val());
+      }
+
     $headline.val('');;
   })
 
@@ -98,6 +104,7 @@ $(function (){
     parsedData.posted = new Date(parsedData.posted);
 
     $('#topics').prepend($('<li>').html(topicTemplate(parsedData)));
+    alert("Headline successfully submitted!");
   });
 
   function topicTemplate(template) {

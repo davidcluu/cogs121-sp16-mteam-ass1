@@ -191,7 +191,7 @@ io.on('connection', function(socket){
         if (err) {
           return done(err);
         }
-        
+        alert("success!");
         io.emit("newsfeed", JSON.stringify(news));
       });
     }
