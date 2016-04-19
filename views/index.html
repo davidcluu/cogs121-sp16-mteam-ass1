@@ -81,20 +81,6 @@
             <input class="btn btn-success" type="submit" role="button" value="Submit" {{#if user}} {{else}} disabled{{/if}}>
           </form>
           <hr>
-<!-- <<<<<<< HEAD
-          {{#each topicFeed}}
-          <p>
-          <div class="thread-title">{{topic}}</div>
-          </p>
-          <div class="user">
-            <div class="user-info">
-              <span class="username">{{user}}</span>&nbsp;
-              <span class="posted">{{posted}}</span>
-            </div>
-          </div>
-          <p><a href="#" class="btn btn-success pull-right" role="button">View Caption</a></p>
-          {{/each}}
-======= -->
           <ul id="topics">
             {{#each topicFeed}}
             <hr>

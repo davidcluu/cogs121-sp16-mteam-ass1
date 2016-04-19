@@ -9,6 +9,23 @@ $(function (){
 
   var expanded = false;
 
+  $('#messages').on('click', '.navUp', function(e){
+    e.preventDefault();
+
+    console.log("ye");
+
+    var PIXELS_PER_SECOND = 1500;
+
+    var obj = $('body');
+    var distance = Math.abs( $(document.body).scrollTop() - obj.offset().top );
+    var scrollDuration = (distance / PIXELS_PER_SECOND) * 1000;
+
+    obj.velocity('scroll', {
+      duration: scrollDuration,
+      easing: 'easing'
+    });
+  });
+
   $('#topics').on('click', '.comment-button', {}, function(e){
     e.preventDefault();
 
@@ -152,7 +169,7 @@ $(function (){
       '</div>' +
       '</div>' +
       '<p>' + template.topic + '</p>' +
-      '<p><a href="#" class="btn btn-info pull-right comment-button" role="button">Comment</a></p>' +
+      '<p><a href="#" class="btn btn-success pull-right comment-button" role="button">View Comment</a></p>' +
       '</li>';
 
     return result;
@@ -179,8 +196,7 @@ $(function (){
       '</div>' +
       '<p>' + template.videoCaption + '</p>' +
       '<a href="#" class="btn btn-success" role="button"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>&nbsp;&nbsp;Delete Post</a>' +
-      '<a href="#" class="btn btn-success pull-right" role="button"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span>&nbsp;&nbsp;Comment</a>' +
-
+      '<a href="#" class="btn btn-success pull-right navUp" role="button"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span></a>' +
       '</li>';
 
     return result;
