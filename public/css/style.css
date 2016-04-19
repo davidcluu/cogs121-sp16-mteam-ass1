@@ -50,6 +50,12 @@ body {
   padding-top: 20px;
 }
 
+.help-footer {
+   position: absolute;
+   bottom: 0;
+   width: 100%;
+}
+
 .video {
    padding-bottom: 5px;
 }
@@ -92,7 +98,26 @@ form>input {
     padding-bottom: 10px
 }
 
+.topic-style {
+  font-size: 18epx;
+  font-weight: bold;
+}
+
 .alert {
   background-color: #D64B4B;
   color: white;
+}
+
+.panel-body > ol {
+   font-family: 'Questrial', sans-serif;
+}
+
+.panel-body > p {
+   font-family: 'Questrial', sans-serif;
+}
+
+#help-container {
+   margin-left: auto;
+   margin-right: auto;
+   width: 1000px;
 }

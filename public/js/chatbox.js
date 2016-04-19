@@ -181,12 +181,12 @@ $(function (){
       '<li>' +
       '<div class="user">' +
       '<div class="user-info">' +
+      '<div class="topic-style"><p>' + template.topic + '</p></div>' +
       '<span class="username">' + template.user + '</span>' +
       '<br/>' +
       '<span class="posted">' + template.posted + '</span>' +
       '</div>' +
       '</div>' +
-      '<p>' + template.topic + '</p>' +
       '<p><a href="#" class="btn btn-success pull-right comment-button" role="button">View Comment</a></p>' +
       '</li>';
 

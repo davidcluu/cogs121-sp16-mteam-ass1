@@ -46,25 +46,20 @@
         </div>
         <div class="panel-body">
           <hr>
-          <ul id="topics">
-            {{#each topicFeed}}
-            <hr>
-            <li>
-              <div class="user">
-                <!-- <div class="user-image">
-                  <img src="{{photo}}" alt="">
-                  </div> -->
-                <div class="user-info">
-                  <span class="username">{{user}}</span>
-                  <br/>
-                  <span class="posted">{{posted}}</span>
-                </div>
-              </div>
-              <p>{{topic}}</p>
-              <p><a href="#" class="btn btn-success pull-right comment-button" role="button">View Comments</a></p>
-            </li>
-            {{/each}}
-          </ul>
+          <div class="user">
+            <!-- <div class="user-image">
+              <img src="{{user.photo}}" alt="">
+              </div> -->
+            <div class="user-info">
+              <span class="username">username</span>&nbsp;
+              <span class="posted">posted</span>
+            </div>
+          </div>
+          <div class="embed-responsive embed-responsive-4by3">
+            <iframe class="embed-responsive-item video" src="https://www.youtube.com/embed/e-ORhEE9VVg"></iframe>
+          </div>
+          <caption>Video Caption</caption>
+          <p><a href="#" class="btn btn-success pull-right" role="button">View Comments</a></p>
         </div>
       </div>
     </div>
