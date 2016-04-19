@@ -44,7 +44,10 @@ $(function (){
     });
   });
 
-  $('#topics').on('click', '.comment-button', {}, function(e){
+  $('#topics').on('click', '.comment-button', {}, onTopicClick);
+  $('#topics2').on('click', '.comment-button', {}, onTopicClick);
+
+  function onTopicClick(e){
     e.preventDefault();
 
     currentThread = $(this).parent().siblings('p').text();
@@ -130,7 +133,7 @@ $(function (){
           console.log(errorThrown);
         })
     }
-  })
+  }
 
   //Threads
   $('#submit-thread').submit(function(e){

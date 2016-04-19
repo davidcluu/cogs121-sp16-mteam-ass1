@@ -13,11 +13,17 @@ exports.view = function(req, res) {
     .find()
     .sort('-posted')
     .exec(function(err, topics) {
-  	  var data = {
-  	  	user: user,
-  	  	topicFeed : topics
-  	  }
-  	  res.render("index", data);
+      models.Thread
+        .find()
+        .sort('-count')
+        .exec(function(err, topics2) {
+          var data = {
+            user: user,
+            topicFeed : topics,
+            topicFeedSorted : topics2
+          }
+          res.render("index", data);
+        });
     });
 
 };

@@ -98,6 +98,31 @@ form>input {
     padding-bottom: 10px
 }
 
+#topics2 {
+    /*margin-top: 30px;
+    background-color: #fafafa;
+    border: 1px #a4ccd5 solid;
+    border-radius: 3px;*/
+    list-style-type: none;
+    padding: 0;
+    font-size: 14px
+}
+#topics2>hr:first-child {
+    border: 0;
+    height: 0
+}
+#topics2>hr {
+    border: 0;
+    padding: 0;
+    width: 95%;
+    height: 1px;
+    background: #e0e0e0
+}
+#topics2>li {
+    padding: 20px;
+    padding-bottom: 10px
+}
+
 .topic-style {
   font-size: 18epx;
   font-weight: bold;
