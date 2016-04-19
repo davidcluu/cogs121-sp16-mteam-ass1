@@ -2,7 +2,7 @@
 
 ## Heuristics
 1. Visibility of system status
-  * User gets an alert when the video has been successfully uploaded.
+  * The user can see their post uploaded to the page after they press submit; an alert is not necessary because the feedback from the system is immediate.
 2. Match between system and the real world
   * New items appear on towards the top of the application as older items move towards the bottom of the app.
 3. User control and freedom
@@ -30,4 +30,4 @@
 * Christine
   * I mostly worked on the front-end and visual layout of the app.
 * Marvin
-  * 
+  *
