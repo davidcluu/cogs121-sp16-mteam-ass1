@@ -9,14 +9,15 @@ exports.view = function(req, res) {
     }
   }
 
-  models.Comment
+  models.Thread
     .find()
     .sort('-posted')
-    .exec(function(err, comments) {
-      var data = {
-        user: user,
-        commentFeed : comments
-      };
-      res.render("index", data);
+    .exec(function(err, topics) {
+  	  var data = {
+  	  	user: user,
+  	  	topicFeed : topics
+  	  }
+  	  res.render("index", data);
     });
+
 };

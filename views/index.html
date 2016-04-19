@@ -38,7 +38,7 @@
 <!-- end nav bar -->
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-3">
+    <div id="trending" class="col-md-5">
       <div class="panel panel-primary">
         <div class="panel-heading">
           <h3 class="panel-title">Trending News</h3>
@@ -62,22 +62,24 @@
         </div>
       </div>
     </div>
+
     <!--Topic Threads-->
-    <div class="col-md-4">
+    <div id="threads" class="col-md-7">
       <div class="panel panel-primary">
         <div class="panel-heading">
           <h3 class="panel-title">Make a Headline</h3>
         </div>
         <div class="panel-body">
           <!--headline form-->
-          <form id="send_message" action="/get">
-            <input type="text" id="tmp" placeholder="Headline Name" autocomplete="off">
+          <form id="submit-thread" action="/get">
+            <input type="text" id="headline" placeholder="Headline Name" autocomplete="off">
             <!--
               <input type="text" id="video_input" placeholder="Paste your video URL here!" autocomplete="off" /><br/>
                 -->
             <input class="btn btn-success" type="submit" role="button" value="Submit">
           </form>
           <hr>
+<!-- <<<<<<< HEAD
           {{#each topicFeed}}
           <p>
           <div class="thread-title">{{topic}}</div>
@@ -90,11 +92,31 @@
           </div>
           <p><a href="#" class="btn btn-success pull-right" role="button">View Caption</a></p>
           {{/each}}
+======= -->
+          <ul id="topics">
+            {{#each topicFeed}}
+            <hr>
+            <li>
+              <div class="user">
+                <!-- <div class="user-image">
+                  <img src="{{photo}}" alt="">
+                  </div> -->
+                <div class="user-info">
+                  <span class="username">{{user}}</span>
+                  <br/>
+                  <span class="posted">{{posted}}</span>
+                </div>
+              </div>
+              <p>{{topic}}</p>
+              <p><a href="#" class="btn btn-success pull-right comment-button" role="button">Comment</a></p>
+            </li>
+            {{/each}}
+          </ul>
         </div>
       </div>
       <!-- </section> -->
     </div>
-    <div class="col-md-5">
+    <div id="comments" class="col-md-5 hidden">
       <div class="panel panel-primary">
         <div class="panel-heading">
           <h3 class="panel-title">Post a Video</h3>
@@ -136,6 +158,9 @@
               <a href="#" class="btn btn-success pull-right" role="button"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span>&nbsp;&nbsp;Comment</a>
             </li>
             {{/each}}
+
+            <!-- commentFeed -->
+
           </ul>
         </div>
       </div>

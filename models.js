@@ -26,6 +26,7 @@ var CommentSchema = new Schema({
   'user': String,
   'videoUrl': String,
   'videoCaption': String,
+  'threadName': String,
   'posted': { type: Date, default: Date.now() }
 });
 

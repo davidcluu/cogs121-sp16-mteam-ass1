@@ -21,6 +21,7 @@ var passport = require("passport");
 
 var router = {
   index: require("./routes/index"),
+  query: require("./routes/query"),
   auth: {
     twitter: {
       auth: passport.authenticate('twitter'),
@@ -129,6 +130,7 @@ passport.deserializeUser(function(user, done) {
 
 // Routes
 app.get("/", router.index.view);
+app.get("/queryComments", router.query.queryComments);
 
 app.get('/auth/twitter', router.auth.twitter.auth);
 app.get('/auth/twitter/callback', router.auth.twitter.callback);
@@ -145,6 +147,30 @@ io.on('connection', function(socket){
     console.log('user disconnected');
   });
 
+  //Socket.on for threads
+  socket.on("topicfeed", function(input) {
+    var passport = socket.request.session.passport;
+    if (!passport.user) {
+      console.log("ERROR: Not logged in");
+    }
+    else {
+      var user = passport.user;
+      var newTopicFeed = new models.Thread ({
+        'user' : user.username,
+        'topic': input
+      });
+      console.log(newTopicFeed);
+      newTopicFeed.save(function(err, topic) {
+        if (err) {
+          return done(err);
+        }
+        
+        io.emit("topicfeed", JSON.stringify(topic));
+      });
+    }
+  });
+
+  //Socket.on for comments
   socket.on("newsfeed", function(input) {
     var passport = socket.request.session.passport;
     if (!passport.user) {
@@ -158,17 +184,22 @@ io.on('connection', function(socket){
       var newCommentFeed = new models.Comment ({
         'user' : user.username,
         'videoUrl': videoLinkMod,
-        'videoCaption': input.caption
+        'videoCaption': input.caption,
+        'threadName': input.threadName,
       });
       newCommentFeed.save(function(err, news) {
         if (err) {
           return done(err);
         }
         
+        console.log(news);
         io.emit("newsfeed", JSON.stringify(news));
       });
     }
   });
+
+
+
 })
 
 // Start Server
